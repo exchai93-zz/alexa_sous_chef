@@ -2,6 +2,22 @@ require 'alexa/response'
 
 RSpec.describe Alexa::Response do
   describe '.build' do
+    it 'returns a JSON response that ends the session' do
+      expected_response = {
+        version: "1.0",
+        response: {
+          outputSpeech: {
+            type: "PlainText",
+            text: "Hello Chef"
+          },
+          shouldEndSession: true
+        }
+      }.to_json
+
+      end_session_response = Alexa::Response.build("Hello Chef", {}, true)
+      expect(end_session_response).to eq expected_response
+    end
+
     it 'returns a JSON response with session data if prodivded' do
       expected_response = {
         version: "1.0",
