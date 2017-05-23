@@ -11,12 +11,12 @@ RSpec.describe Alexa::Response do
         response: {
           outputSpeech: {
             type: "PlainText",
-            text: "Custom String"
+            text: "Hello Chef"
           }
         }
       }.to_json
 
-      session_response = Alexa::Response.build("Hello World", { sessionKey: "Session Value" })
+      session_response = Alexa::Response.build("Hello Chef", { sessionKey: "Session Value" })
       expect(session_response).to eq expected_response
     end
 
