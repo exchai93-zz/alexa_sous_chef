@@ -22,7 +22,7 @@ RSpec.describe Alexa::Response do
         response: {
           outputSpeech: {
             type: "PlainText",
-            text: "Hello World"
+            text: "Hello Chef"
           }
         }
       }.to_json
