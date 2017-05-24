@@ -45,7 +45,7 @@ RSpec.describe Alexa::Request do
     it 'returns the Intent Name from the request' do
       request_json = {
         "request": {
-          "type": "IntetnRequest",
+          "type": "IntentRequest",
           "intent": {
             "name": "IntentName"
           }
