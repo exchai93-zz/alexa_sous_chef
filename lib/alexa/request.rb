@@ -10,5 +10,9 @@ module Alexa
     def slot_value(slot_name)
       self.request['request']['intent']['slots'][slot_name]['value']
     end
+
+    def session_attribute(attribute_name)
+      @request["session"]["attributes"][attribute_name]
+    end
   end
 end
