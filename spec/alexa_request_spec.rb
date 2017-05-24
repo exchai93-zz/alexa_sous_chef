@@ -40,4 +40,21 @@ RSpec.describe Alexa::Request do
       expect(Alexa::Request.new(sinatra_request).session_attribute("recipe")).to eq "Chocolate Cake"
     end
   end
+
+  describe '#intent_name' do
+    it 'returns the Intent Name from the request' do
+      request_json = {
+        "request": {
+          "type": "IntetnRequest",
+          "intent": {
+            "name": "IntentName"
+          }
+        }
+      }.to_json
+
+      sinatra_request = double("Sinatra::Request", body: StringIO.new(request_json))
+
+      expect(Alexa::Request.new(sinatra_request).intent_name).to eq "IntentName"
+    end
+  end
 end
