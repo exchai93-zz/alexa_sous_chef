@@ -9,11 +9,18 @@ RSpec.describe Recipe do
   #
   #     expect(recipe.cooking_time_min).to eq cooking_time_min
   #   end
-  let(:recipe) { JSON.parse(File.read('sample_json.rb')) }
+  let(:recipe_file) { JSON.parse(File.read('sample_json.rb')) }
+  subject(:recipe) { described_class.new(recipe_file) }
 
   describe '#respond_with_recipe_name' do
     it 'returns the recipe name if found' do
-      expect(described_class.new(recipe).name).to eq "Baked Lemon Snapper"
+      expect(recipe.name).to eq "Baked Lemon Snapper"
+    end
+  end
+
+  describe '#start_cooking_step' do
+    it 'returns the first step of the recipe' do
+      expect(recipe.start_cooking_step).to eq "Preheat oven to 390 °F (200 °C)."
     end
   end
 

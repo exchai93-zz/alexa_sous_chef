@@ -12,4 +12,11 @@ class Recipe
     recipe['recipe']['recipe_name']
   end
 
+  def start_cooking_step
+    recipe['recipe']['directions']['direction']['direction_description']
+  end
+
+  # def next_step
+  # end
+
 end
