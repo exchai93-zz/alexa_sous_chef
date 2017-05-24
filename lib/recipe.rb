@@ -16,7 +16,10 @@ class Recipe
     recipe['recipe']['directions']['direction']['direction_description']
   end
 
-  # def next_step
-  # end
+  def step(number)
+    direction = recipe['recipe']['directions'].keys[number]
+    recipe['recipe']['directions'][direction]['direction_description']
+  end
+
 
 end
