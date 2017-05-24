@@ -16,22 +16,16 @@ post '/' do
     recipe_name = alexa_request.session_attribute("recipeName")
     action = alexa_request.slot_value("Action")
     recipe = JSON.parse(File.read("sample_json.rb"))
-    stepNumber = 1 || alexa_request.session_attribute("stepNumber")
+    stepNumber = alexa_request.session_attribute("stepNumber") || 0
 
-    if alexa_request.slot_value("Action") == 'start cooking'
+    if action == 'start cooking'
       response_text = recipe['recipe']['directions']['direction']['direction_description']
       stepNumber += 1
     end
 
-    if alexa_request.slot_value("Action") == 'next'
+    if action == 'next'
       step = recipe['recipe']['directions'].keys[stepNumber]
-      p recipe['recipe']['directions'].keys
-
-      # p stepNumber
-      # direction = recipe['recipe']['directions'].each.select { |direction| p direction; direction[1]['direction_number'].to_i == stepNumber }
-      # p direction
-      response_text = step['direction_description']
-      p response_text
+      response_text = recipe['recipe']['directions'][step]['direction_description']
       stepNumber += 1
     end
 
