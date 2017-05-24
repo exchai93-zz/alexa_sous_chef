@@ -1,5 +1,6 @@
 module Alexa
   class Request
+    INTENT_REQUEST_TYPE = "IntentRequest".freeze
 
     attr_reader :request
 
@@ -16,7 +17,15 @@ module Alexa
     end
 
     def intent_name
-      request['request']['intent']['name']
+      return @request["request"]["type"] unless intent_request?
+      @request["request"]["intent"]["name"]
     end
+
+    private
+
+    def intent_request?
+      @request["request"]["type"] == INTENT_REQUEST_TYPE
+    end
+
   end
 end
