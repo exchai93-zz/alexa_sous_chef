@@ -7,11 +7,11 @@ post '/' do
   alexa_request = Alexa::Request.new(request)
 
   if alexa_request.intent_name == "FindRecipe"
-    respond_with_recipe_name(alexa_request)
+    return respond_with_recipe_name(alexa_request)
   end
 
   if alexa_request.intent_name == 'Steps'
-    respond_with_steps(alexa_request)
+    return respond_with_steps(alexa_request)
   end
 end
 
