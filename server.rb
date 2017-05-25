@@ -6,11 +6,11 @@ require_relative './lib/alexa/response'
 post '/' do
   alexa_request = Alexa::Request.new(request)
 
-  
+
   if alexa_request.intent_name == "FindRecipe"
     return respond_with_recipe_name(alexa_request)
   end
-  
+
   if alexa_request.intent_name == 'Ingredients'
     recipe_name = alexa_request.session_attribute("recipeName")
     read = alexa_request.slot_value("Read")
