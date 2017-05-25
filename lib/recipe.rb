@@ -23,6 +23,10 @@ class Recipe
     contents['recipe']['recipe_name']
   end
 
+  def ingredients
+    contents['recipe']['ingredients']['ingredient']['ingredient_description']
+  end
+
   def step(input)
     increment_step if input == 'next'
     stepNumber = contents['stepNumber']
