@@ -12,7 +12,7 @@ post '/' do
   elsif alexa_request.intent_name == 'Ingredients'
     respond_with_ingredients_details(alexa_request)
 
-    if set_slot_value("Read") == 'Read ingredients'
+    if get_slot_value("Read") == 'Read ingredients'
       respond_with_read_ingredients(alexa_request)
     end
     build_alexa_response
@@ -24,14 +24,14 @@ post '/' do
 end
 
 def respond_with_recipe_name(alexa_request)
-  recipe_name = set_slot_value("Recipe")
+  recipe_name = get_slot_value("Recipe")
   response_text = "Found" + recipe_name
   build_alexa_response
 end
 
 def respond_with_ingredients_details(alexa_request)
   set_recipe_session
-  set_slot_value("Read")
+  get_slot_value("Read")
   set_recipe_from_JSON
 end
 
@@ -42,7 +42,7 @@ end
 
 def respond_with_steps(alexa_request)
   set_recipe_session
-  action = set_slot_value("Action")
+  action = get_slot_value("Action")
   set_recipe_from_JSON
   stepNumber = alexa_request.session_attribute("stepNumber") || 0
   end
@@ -66,7 +66,7 @@ def set_recipe_from_JSON
   recipe = JSON.parse(File.read("sample_json.rb"))
 end
 
-def set_slot_value(string)
+def get_slot_value(string)
   alexa_request.slot_value(string)
 end
 
