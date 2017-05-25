@@ -35,43 +35,40 @@ class AlexaChef < Sinatra::Base
   end
 
   def respond_with_recipe_name(alexa_request)
-    # recipe = Recipe.find(alexa_request.slot_value("Recipe"))
     # recipe = Recipe.find(91)
-    recipe_name = alexa_request.slot_value("Recipe")
-    recipe = JSON.parse(File.read("sample_json.rb"))
-    response_text = "Found " + recipe_name
-    return Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe.recipe.to_json })
+    recipe = Recipe.new(JSON.parse(File.read("sample_json.rb")))
+    response_text = "Found " + recipe.name
+    return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents })
   end
 
   def respond_with_steps(alexa_request)
-    p JSON.parse(alexa_request.session_attribute('recipeName')).class
     # recipe_name = alexa_request.session_attribute("recipeName")
     # recipe = Recipe.find(alexa_request.session_attribute("Recipe"))
-    p alexa_request.session_attribute("recipeName")
-    # recipe = alexa_request.session_attribute("recipeName").recipe
     # action = alexa_request.slot_value("Action")
-    # recipe = JSON.parse(File.read("sample_json.rb"))
+    recipe = Recipe.new(alexa_request.session_attribute('recipe'))
+    p recipe
 
     response_text = recipe.start_cooking_step if alexa_request.slot_value("Action") == 'start cooking'
     # response_text = recipe.step(***) if alexa_request.slot_value("Action") == 'next'
     # response_text = recipe.step(***) if alexa_request.slot_value("Action") == 'repeat'
 
-    if action == 'start cooking'
-      response_text = recipe['recipe']['directions']['direction'][stepNumber]['direction_description']
-      stepNumber += 1
-    end
-
-    if action == 'repeat'
-      stepNumber -= 1
-      response_text = recipe['recipe']['directions']['direction'][stepNumber]['direction_description']
-      stepNumber += 1
-    end
-
-    if action == 'next'
-      # step = recipe['recipe']['directions'].keys[stepNumber]
-      response_text = recipe['recipe']['directions']['direction'][stepNumber]['direction_description']
-      stepNumber += 1
-    end
-    return Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name, stepNumber: stepNumber })
+    # if action == 'start cooking'
+    #   response_text = recipe['recipe']['directions']['direction'][stepNumber]['direction_description']
+    #   stepNumber += 1
+    # end
+    #
+    # if action == 'repeat'
+    #   stepNumber -= 1
+    #   response_text = recipe['recipe']['directions']['direction'][stepNumber]['direction_description']
+    #   stepNumber += 1
+    # end
+    #
+    # if action == 'next'
+    #   # step = recipe['recipe']['directions'].keys[stepNumber]
+    #   response_text = recipe['recipe']['directions']['direction'][stepNumber]['direction_description']
+    #   stepNumber += 1
+    # end
+    # return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents, stepNumber: stepNumber })
+    return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents})
   end
 end
