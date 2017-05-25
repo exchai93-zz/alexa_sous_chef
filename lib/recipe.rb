@@ -18,16 +18,12 @@ class Recipe
 
   def self.find(number, api = FatSecret)
     contents = api.recipe(number)
+    p contents
     new(add_stepNumber(contents))
   end
 
   def name
     contents['recipe']['recipe_name']
-  end
-
-  def start_cooking_step
-    stepNumber = contents['stepNumber']
-    contents['recipe']['directions']['direction'][stepNumber]['direction_description']
   end
 
   def step(input)
@@ -44,6 +40,7 @@ class Recipe
 
   def self.add_stepNumber(contents)
     contents['stepNumber'] = 0
+    return contents
   end
 
 

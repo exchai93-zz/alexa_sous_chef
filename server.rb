@@ -42,16 +42,8 @@ class AlexaChef < Sinatra::Base
   end
 
   def respond_with_steps(alexa_request)
-    # recipe_name = alexa_request.session_attribute("recipeName")
-    # recipe = Recipe.find(alexa_request.session_attribute("Recipe"))
-    # action = alexa_request.slot_value("Action")
-    input = alexa_request.slot_value("Action")
     recipe = Recipe.new(alexa_request.session_attribute('recipe'))
-    # stepNumber = alexa_request.session_attribute("stepNumber") || 0
-
-    response_text = recipe.start_cooking_step if input == 'start cooking'
-    response_text = recipe.step(input) if input =~ /next || repeat/
-
+    response_text = recipe.step(alexa_request.slot_value("Action"))
     return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents})
   end
 end
