@@ -6,18 +6,16 @@ require_relative './lib/alexa/response'
 post '/' do
   alexa_request = Alexa::Request.new(request)
 
-
   if alexa_request.intent_name == 'FindRecipe'
     respond_with_recipe_name(alexa_request)
-  end
 
-  if alexa_request.intent_name == 'Ingredients'
+  elsif alexa_request.intent_name == 'Ingredients'
     respond_with_ingredients_details(alexa_request)
 
-    if alexa_request.slot_value("Read") == 'Read ingredients'
+    if set_slot_value("Read") == 'Read ingredients'
       respond_with_read_ingredients(alexa_request)
     end
-    Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name} )
+    build_alexa_response
   end
 
   if alexa_request.intent_name == 'Steps'
@@ -26,9 +24,9 @@ post '/' do
 end
 
 def respond_with_recipe_name(alexa_request)
-  recipe_name = alexa_request.slot_value("Recipe")
+  recipe_name = set_slot_value("Recipe")
   response_text = "Found" + recipe_name
-  Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name })
+  build_alexa_response
 end
 
 def respond_with_ingredients_details(alexa_request)
@@ -47,14 +45,11 @@ def respond_with_steps(alexa_request)
   action = set_slot_value("Action")
   set_recipe_from_JSON
   stepNumber = alexa_request.session_attribute("stepNumber") || 0
-
   end
 
   if action == 'start cooking'
     start_cooking_response
-  end
-
-  if action == 'next'
+  elsif action == 'next'
     next_step_response
   end
   Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name, stepNumber: stepNumber })
@@ -88,4 +83,8 @@ def next_step_response
   step = recipe['recipe']['directions'].keys[stepNumber]
   response_text = recipe['recipe']['directions'][step]['direction_description']
   increment_step
+end
+
+def build_alexa_response
+  Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name} )
 end
