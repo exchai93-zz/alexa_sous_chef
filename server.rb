@@ -47,6 +47,11 @@ class AlexaChef < Sinatra::Base
       stepNumber += 1
     end
 
+    if action == 'repeat'
+      stepNumber -= 1
+      response_text = recipe['recipe']['directions']['direction'][stepNumber]['direction_description']
+    end
+
     if action == 'next'
       # step = recipe['recipe']['directions'].keys[stepNumber]
       response_text = recipe['recipe']['directions']['direction'][stepNumber]['direction_description']
