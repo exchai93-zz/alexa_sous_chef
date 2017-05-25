@@ -33,7 +33,7 @@ end
 
 def respond_with_ingredients_details(alexa_request)
   set_recipe_session
-  read = alexa_request.slot_value("Read")
+  set_slot_value("Read")
   set_recipe_from_JSON
 end
 
@@ -44,22 +44,22 @@ end
 
 def respond_with_steps(alexa_request)
   set_recipe_session
-  action = alexa_request.slot_value("Action")
+  action = set_slot_value("Action")
   set_recipe_from_JSON
   stepNumber = alexa_request.session_attribute("stepNumber") || 0
 
+  end
+
   if action == 'start cooking'
-    response_text = recipe['recipe']['directions']['direction']['direction_description']
-    increment_step
+    start_cooking_response
   end
 
   if action == 'next'
-    step = recipe['recipe']['directions'].keys[stepNumber]
-    response_text = recipe['recipe']['directions'][step]['direction_description']
-    increment_step
+    next_step_response
   end
   Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name, stepNumber: stepNumber })
 end
+
 
 private
 
@@ -71,6 +71,21 @@ def set_recipe_from_JSON
   recipe = JSON.parse(File.read("sample_json.rb"))
 end
 
+def set_slot_value(string)
+  alexa_request.slot_value(string)
+end
+
 def increment_step
   stepNumber += 1
+end
+
+def start_cooking_response
+  response_text = recipe['recipe']['directions']['direction']['direction_description']
+  increment_step
+end
+
+def next_step_response
+  step = recipe['recipe']['directions'].keys[stepNumber]
+  response_text = recipe['recipe']['directions'][step]['direction_description']
+  increment_step
 end
