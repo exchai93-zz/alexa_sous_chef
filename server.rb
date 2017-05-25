@@ -43,13 +43,13 @@ class AlexaChef < Sinatra::Base
     stepNumber = alexa_request.session_attribute("stepNumber") || 0
 
     if action == 'start cooking'
-      response_text = recipe['recipe']['directions']['direction']['direction_description']
+      response_text = recipe['recipe']['directions']['direction'][stepNumber]['direction_description']
       stepNumber += 1
     end
 
     if action == 'next'
-      step = recipe['recipe']['directions'].keys[stepNumber]
-      response_text = recipe['recipe']['directions'][step]['direction_description']
+      # step = recipe['recipe']['directions'].keys[stepNumber]
+      response_text = recipe['recipe']['directions']['direction'][stepNumber]['direction_description']
       stepNumber += 1
     end
     return Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name, stepNumber: stepNumber })
