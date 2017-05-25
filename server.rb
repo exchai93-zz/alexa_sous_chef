@@ -35,8 +35,8 @@ class AlexaChef < Sinatra::Base
   end
 
   def respond_with_recipe_name(alexa_request)
-    # recipe = Recipe.find(91)
-    recipe = Recipe.new(JSON.parse(File.read("sample_json.rb")))
+    recipe = Recipe.find(91)
+    # recipe = Recipe.new(JSON.parse(File.read("sample_json.rb")))
     response_text = "Found " + recipe.name
     return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents })
   end
@@ -45,11 +45,14 @@ class AlexaChef < Sinatra::Base
     # recipe_name = alexa_request.session_attribute("recipeName")
     # recipe = Recipe.find(alexa_request.session_attribute("Recipe"))
     # action = alexa_request.slot_value("Action")
+    input = alexa_request.slot_value("Action")
     recipe = Recipe.new(alexa_request.session_attribute('recipe'))
+    # stepNumber = alexa_request.session_attribute("stepNumber") || 0
+
     p recipe
 
-    response_text = recipe.start_cooking_step if alexa_request.slot_value("Action") == 'start cooking'
-    # response_text = recipe.step(***) if alexa_request.slot_value("Action") == 'next'
+    response_text = recipe.start_cooking_step if input == 'start cooking'
+    response_text = recipe.step(input) if input =~ /next || repeat/
     # response_text = recipe.step(***) if alexa_request.slot_value("Action") == 'repeat'
 
     # if action == 'start cooking'
