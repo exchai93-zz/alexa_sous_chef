@@ -7,7 +7,6 @@ class AlexaChef < Sinatra::Base
   post '/' do
     alexa_request = Alexa::Request.new(request)
 
-
     if alexa_request.intent_name == "FindRecipe"
       return respond_with_recipe_name(alexa_request)
     end
@@ -26,19 +25,14 @@ class AlexaChef < Sinatra::Base
 
       end
 
-    if alexa_request.AMAZON.HelpIntent == "Help"
-      respond_to_help(alexa_request)
-    end
-
-
     if alexa_request.intent_name == 'Steps'
       return respond_with_steps(alexa_request)
     end
-  end
 
-  def respond_to_help(alexa_request)
-    response_text = "Here are some things you could say: Read ingredients, start cooking, start over, next or repeat."
-    return Alexa::Response.build(response_text: response_text)
+    if alexa_request.intent_name == 'AMAZON.HelpIntent'
+      response_text = "Here are some things you could say: Read ingredients, start cooking, start over, next or repeat."
+      return Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name} )
+    end
   end
 
   def respond_with_recipe_name(alexa_request)
