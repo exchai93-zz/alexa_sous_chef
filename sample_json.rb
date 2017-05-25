@@ -3,15 +3,16 @@
     "directions":
       {
         "direction":
-        {
-          "direction_description": "Preheat oven to 390 °F (200 °C).",
-           "direction_number": "1"
-        },
-        "direction2":
-        {
-          "direction_description": "Go fishing.",
-          "direction_number": "2"
-        }
+        [
+          {
+            "direction_description": "Preheat oven to 390 °F (200 °C).",
+            "direction_number": "1"
+          },
+          {
+            "direction_description": "Go fishing.",
+            "direction_number": "2"
+          }
+        ]
       },
       "ingredients":
       {

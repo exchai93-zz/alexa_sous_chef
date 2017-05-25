@@ -11,7 +11,8 @@ RSpec.describe Alexa::Response do
           outputSpeech: {
             type: "PlainText",
             text: "Custom String"
-          }
+          },
+          "shouldEndSession": false
         }
       }.to_json
 
@@ -29,7 +30,8 @@ RSpec.describe Alexa::Response do
           outputSpeech: {
             type: "PlainText",
             text: "Hello Chef"
-          }
+          },
+          "shouldEndSession": false
         }
       }.to_json
 
@@ -45,7 +47,8 @@ RSpec.describe Alexa::Response do
           outputSpeech: {
             type: "PlainText",
             text: "Hello Chef"
-          }
+          },
+          "shouldEndSession": false
         }
       }.to_json
 
@@ -77,7 +80,8 @@ RSpec.describe Alexa::Response do
           outputSpeech: {
             type: "PlainText",
             text: "Hello Chef"
-          }
+          },
+          "shouldEndSession": false
         }
       }.to_json
 
