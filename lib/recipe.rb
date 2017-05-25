@@ -1,7 +1,7 @@
 require 'net/http'
 require 'fatsecret'
 FatSecret.init('98aff9ab2f594f0787d955f9323d8316','cf87e9e7155a49a1bebc6d000846da04')
-p FatSecret.recipe(91)
+# p FatSecret.recipe(91)
 
 
 class Recipe
@@ -17,12 +17,12 @@ class Recipe
   end
 
   def start_cooking_step
-    recipe['recipe']['directions']['direction']['direction_description']
+    recipe['recipe']['directions']['direction'][0]['direction_description']
   end
 
   def step(number)
-    direction = recipe['recipe']['directions'].keys[number]
-    recipe['recipe']['directions'][direction]['direction_description']
+    # direction = recipe['recipe']['directions'].keys[number]
+    recipe['recipe']['directions']['direction'][number]['direction_description']
   end
 
 
