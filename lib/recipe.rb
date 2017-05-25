@@ -2,8 +2,6 @@ require 'dotenv/load'
 require 'net/http'
 require 'fatsecret'
 
-# FatSecret.init(ENV["FATSECRET_KEY"],ENV["FATSECRET_SECRET"])
-
 
 class Recipe
 
@@ -18,7 +16,6 @@ class Recipe
 
   def self.find(number, api = FatSecret)
     contents = api.recipe(number)
-    p contents
     new(add_stepNumber(contents))
   end
 
@@ -42,6 +39,4 @@ class Recipe
     contents['stepNumber'] = 0
     return contents
   end
-
-
 end
