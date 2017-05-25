@@ -2,8 +2,12 @@ require 'sinatra/base'
 require 'json'
 require_relative './lib/alexa/request'
 require_relative './lib/alexa/response'
+require_relative './lib/recipe'
 
 class AlexaChef < Sinatra::Base
+  enable :sessions
+  FatSecret.init(ENV["FATSECRET_KEY"],ENV["FATSECRET_SECRET"])
+
   post '/' do
     alexa_request = Alexa::Request.new(request)
 
@@ -31,16 +35,25 @@ class AlexaChef < Sinatra::Base
   end
 
   def respond_with_recipe_name(alexa_request)
-    recipe_name = alexa_request.slot_value("Recipe")
-    response_text = "Found" + recipe_name
-    return Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name })
+    # recipe = Recipe.find(alexa_request.slot_value("Recipe"))
+    recipe = Recipe.find(91)
+    p recipe.class
+    response_text = "Found " + recipe.name
+    return Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe.recipe.to_json })
   end
 
   def respond_with_steps(alexa_request)
-    recipe_name = alexa_request.session_attribute("recipeName")
-    action = alexa_request.slot_value("Action")
-    recipe = JSON.parse(File.read("sample_json.rb"))
-    stepNumber = alexa_request.session_attribute("stepNumber") || 0
+    p JSON.parse(alexa_request.session_attribute('recipeName')).class
+    # recipe_name = alexa_request.session_attribute("recipeName")
+    # recipe = Recipe.find(alexa_request.session_attribute("Recipe"))
+    p alexa_request.session_attribute("recipeName")
+    # recipe = alexa_request.session_attribute("recipeName").recipe
+    # action = alexa_request.slot_value("Action")
+    # recipe = JSON.parse(File.read("sample_json.rb"))
+
+    response_text = recipe.start_cooking_step if alexa_request.slot_value("Action") == 'start cooking'
+    # response_text = recipe.step(***) if alexa_request.slot_value("Action") == 'next'
+    # response_text = recipe.step(***) if alexa_request.slot_value("Action") == 'repeat'
 
     if action == 'start cooking'
       response_text = recipe['recipe']['directions']['direction'][stepNumber]['direction_description']
@@ -50,6 +63,7 @@ class AlexaChef < Sinatra::Base
     if action == 'repeat'
       stepNumber -= 1
       response_text = recipe['recipe']['directions']['direction'][stepNumber]['direction_description']
+      stepNumber += 1
     end
 
     if action == 'next'

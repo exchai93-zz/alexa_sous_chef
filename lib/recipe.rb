@@ -2,7 +2,7 @@ require 'dotenv/load'
 require 'net/http'
 require 'fatsecret'
 
-FatSecret.init(ENV["FATSECRET_KEY"],ENV["FATSECRET_SECRET"])
+# FatSecret.init(ENV["FATSECRET_KEY"],ENV["FATSECRET_SECRET"])
 
 
 class Recipe
@@ -11,6 +11,7 @@ class Recipe
 
   def initialize(recipe)
     @recipe = recipe
+    @stepNumber = 1
   end
 
   def self.find(number, api = FatSecret)
@@ -31,3 +32,6 @@ class Recipe
 
 
 end
+
+
+# stepNumber = alexa_request.session_attribute("stepNumber") || 0
