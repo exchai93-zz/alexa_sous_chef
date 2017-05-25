@@ -7,31 +7,31 @@ post '/' do
   alexa_request = Alexa::Request.new(request)
 
   if alexa_request.intent_name == 'FindRecipe'
-    respond_with_recipe_name(alexa_request)
+    return respond_with_recipe_name(alexa_request)
 
   elsif alexa_request.intent_name == 'Ingredients'
-    respond_with_ingredients_details(alexa_request)
+    return respond_with_ingredients_details(alexa_request)
 
-    if get_slot_value("Read") == 'Read ingredients'
-      respond_with_read_ingredients(alexa_request)
+    if alexa_request.slot_value("Read") == 'Read ingredients'
+      return respond_with_read_ingredients(alexa_request)
     end
     build_alexa_response
   end
 
   if alexa_request.intent_name == 'Steps'
-    respond_with_steps(alexa_request)
+    return respond_with_steps(alexa_request)
   end
 end
 
 def respond_with_recipe_name(alexa_request)
-  recipe_name = get_slot_value("Recipe")
+  recipe_name = alexa_request.slot_value("Recipe")
   response_text = "Found" + recipe_name
   build_alexa_response
 end
 
 def respond_with_ingredients_details(alexa_request)
   set_recipe_session
-  get_slot_value("Read")
+  alexa_request.slot_value("Read")
   set_recipe_from_JSON
 end
 
@@ -42,7 +42,7 @@ end
 
 def respond_with_steps(alexa_request)
   set_recipe_session
-  action = get_slot_value("Action")
+  action = alexa_request.slot_value("Action")
   set_recipe_from_JSON
   stepNumber = alexa_request.session_attribute("stepNumber") || 0
   end
@@ -52,7 +52,7 @@ def respond_with_steps(alexa_request)
   elsif action == 'next'
     next_step_response
   end
-  Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name, stepNumber: stepNumber })
+  return Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name, stepNumber: stepNumber })
 end
 
 
@@ -64,10 +64,6 @@ end
 
 def set_recipe_from_JSON
   recipe = JSON.parse(File.read("sample_json.rb"))
-end
-
-def get_slot_value(string)
-  alexa_request.slot_value(string)
 end
 
 def increment_step
@@ -86,5 +82,5 @@ def next_step_response
 end
 
 def build_alexa_response
-  Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name} )
+  return Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name} )
 end

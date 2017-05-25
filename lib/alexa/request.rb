@@ -1,5 +1,5 @@
 module Alexa
-  # Sends a request to Alexa with JSON object 
+  # Sends a request to Alexa with JSON object
   class Request
 
     INTENT_REQUEST_TYPE = "IntentRequest".freeze
@@ -19,14 +19,14 @@ module Alexa
     end
 
     def intent_name
-      request["request"]["type"] unless intent_request?
-      request["request"]["intent"]["name"]
+      return @request["request"]["type"] unless intent_request?
+      @request["request"]["intent"]["name"]
     end
 
     private
 
     def intent_request?
-      request["request"]["type"] == INTENT_REQUEST_TYPE
+      @request["request"]["type"] == INTENT_REQUEST_TYPE
     end
 
   end
