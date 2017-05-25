@@ -23,11 +23,22 @@ class AlexaChef < Sinatra::Base
       end
 
       return Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name} )
+
+      end
+
+    if alexa_request.AMAZON.HelpIntent == "Help"
+      respond_to_help(alexa_request)
     end
+
 
     if alexa_request.intent_name == 'Steps'
       return respond_with_steps(alexa_request)
     end
+  end
+
+  def respond_to_help(alexa_request)
+    response_text = "Here are some things you could say: Read ingredients, start cooking, start over, next or repeat."
+    return Alexa::Response.build(response_text: response_text)
   end
 
   def respond_with_recipe_name(alexa_request)
