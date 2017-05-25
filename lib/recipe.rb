@@ -7,10 +7,10 @@ require 'fatsecret'
 
 class Recipe
 
-  attr_reader :recipe
+  attr_reader :contents
 
-  def initialize(recipe)
-    @recipe = recipe
+  def initialize(contents)
+    @contents = contents
     @stepNumber = 1
   end
 
@@ -19,15 +19,15 @@ class Recipe
   end
 
   def name
-    recipe['recipe']['recipe_name']
+    contents['recipe']['recipe_name']
   end
 
   def start_cooking_step
-    recipe['recipe']['directions']['direction'][0]['direction_description']
+    contents['recipe']['directions']['direction'][0]['direction_description']
   end
 
   def step(number)
-    recipe['recipe']['directions']['direction'][number]['direction_description']
+    contents['recipe']['directions']['direction'][number]['direction_description']
   end
 
 
