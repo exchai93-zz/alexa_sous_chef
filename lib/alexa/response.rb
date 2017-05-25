@@ -1,5 +1,7 @@
 module Alexa
+  # Creates a response based on the request
   class Response < Hash
+
     def initialize(response_text, session_attributes, end_session, start_over)
       @response_text = response_text
       @session_attributes = session_attributes
@@ -22,7 +24,7 @@ module Alexa
     end
 
     def set_session_attributes
-      return self[:sessionAttributes] = {} if @start_over
+      self[:sessionAttributes] = {} if @start_over
       self[:sessionAttributes] = @session_attributes unless @session_attributes.empty?
     end
 
