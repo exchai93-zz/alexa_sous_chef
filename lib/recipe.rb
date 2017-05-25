@@ -8,8 +8,12 @@ class Recipe
 
   attr_reader :recipe
 
-  def initialize(recipe = JSON.parse(File.read('sample_json.rb')))
+  def initialize(recipe)
     @recipe = recipe
+  end
+
+  def self.find(number, api = FatSecret)
+    new(api.recipe(number))
   end
 
   def name
@@ -21,7 +25,6 @@ class Recipe
   end
 
   def step(number)
-    # direction = recipe['recipe']['directions'].keys[number]
     recipe['recipe']['directions']['direction'][number]['direction_description']
   end
 
