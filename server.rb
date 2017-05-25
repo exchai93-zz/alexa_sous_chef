@@ -32,10 +32,20 @@ class AlexaChef < Sinatra::Base
     if alexa_request.intent_name == 'AMAZON.HelpIntent'
       return respond_with_help(alexa_request)
     end
+
+    if alexa_request.intent_name == 'AMAZON.StopIntent'
+      return respond_with_stop(alexa_request)
+    end
+
   end
 
   def respond_with_help(alexa_request)
     response_text = "Here are some things you could say: Read ingredients, start cooking, start over, next or repeat."
+    return Alexa::Response.build(response_text: response_text)
+  end
+
+  def respond_with_stop(alexa_request)
+    response_text = "Sous Chef successfully ended."
     return Alexa::Response.build(response_text: response_text)
   end
 
