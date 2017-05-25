@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.3)
+    dotenv (2.2.1)
     fatsecret-api (0.2.1)
     mustermann (1.0.0)
     rack (2.0.3)
@@ -31,6 +32,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   fatsecret-api
   rspec
   sinatra
