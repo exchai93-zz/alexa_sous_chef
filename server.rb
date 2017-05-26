@@ -10,6 +10,8 @@ class AlexaChef < Sinatra::Base
   post '/' do
     alexa_request = Alexa::Request.new(request)
 
+    p alexa_request
+
     if alexa_request.intent_name == 'SearchRecipes'
       return respond_with_recipes(alexa_request)
     end

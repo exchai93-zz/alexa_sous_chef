@@ -16,7 +16,10 @@ module Alexa
     end
 
     def intent_name
-      @request["request"]["intent"]["name"]
+      request["request"]["intent"]["name"]
     end
+
+    # def request_type
+    # end
   end
 end
