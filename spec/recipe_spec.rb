@@ -5,6 +5,13 @@ RSpec.describe Recipe do
   let(:fat_secret) { double(:fat_secret, recipe: recipe_file)}
   subject(:recipe) { described_class.find(91, fat_secret) }
 
+  describe '.search' do
+    it 'retrieves recipes for the specified ingredient' do
+      expect(fat_secret).to receive(:recipes_search).with('pasta', 5)
+      described_class.search('pasta', 5)
+    end
+  end
+
   describe '.find' do
     it 'finds the recipe' do
       expect(fat_secret).to receive(:recipe).with(91)

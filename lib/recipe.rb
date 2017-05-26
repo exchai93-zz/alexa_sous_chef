@@ -2,6 +2,8 @@ require 'dotenv/load'
 require 'net/http'
 require 'fatsecret'
 
+FatSecret.init(ENV["FATSECRET_KEY"],ENV["FATSECRET_SECRET"])
+
 
 class Recipe
 
