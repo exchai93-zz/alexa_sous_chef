@@ -30,6 +30,7 @@ class Recipe
   def step(input)
     increment_step if input == 'next'
     stepNumber = contents['stepNumber']
+    p stepNumber
     contents['recipe']['directions']['direction'][stepNumber]['direction_description']
   end
 

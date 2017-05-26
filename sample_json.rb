@@ -17,14 +17,25 @@
       "ingredients":
       {
         "ingredient":
-        {
-          "food_id": "38065",
-          "food_name": "Snapper (Fish) (Mixed Species)",
-          "ingredient_description": "1 1\/2 lbs snapper fillets",
-          "measurement_description": "lb",
-          "number_of_units": "1.500",
-          "serving_id": "47968" }
+        [
+          {
+            "food_id": "38065",
+            "food_name": "Snapper (Fish) (Mixed Species)",
+            "ingredient_description": "1 1\/2 lbs snapper fillets",
+            "measurement_description": "lb",
+            "number_of_units": "1.500",
+            "serving_id": "47968"
           },
+          {
+            "food_id"=>"35852",
+            "food_name"=>"Lemon Peel",
+            "ingredient_description"=>"3 tbsps lemon rind, finely chopped",
+            "measurement_description"=>"tbsp",
+            "number_of_units"=>"3.000",
+            "serving_id"=>"33142"
+          }
+        ]
+      },
           "number_of_servings": "4",
           "preparation_time_min": "5",
           "rating": "4",
