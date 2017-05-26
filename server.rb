@@ -10,6 +10,10 @@ class AlexaChef < Sinatra::Base
   post '/' do
     alexa_request = Alexa::Request.new(request)
 
+    if alexa_request.type == 'LaunchRequest'
+      return respond_with_intro(alexa_request)
+    end
+
     if alexa_request.intent_name == 'SearchRecipes'
       return respond_with_recipes(alexa_request)
     end
@@ -39,6 +43,11 @@ class AlexaChef < Sinatra::Base
     end
   end
 
+    def respond_with_intro(alexa_request)
+      response_text = 'Hello Chef. Today, I will be helping you in the kitchen. What would you like to cook? If you tell me an ingredient, I will load some randomized recipes for you. To select a recipe, please specify the number. You can then ask me for the ingredients and the preparation steps. Say help and I will be right there with you.'
+      return Alexa::Response.build(response_text: response_text)
+    end
+
     def respond_with_recipes(alexa_request)
       choice = alexa_request.slot_value('Ingredient')
       # Stubbed API
@@ -46,7 +55,7 @@ class AlexaChef < Sinatra::Base
       formatted_recipes = queried_recipes.map { |recipe| {recipe['recipe_name'] => recipe['recipe_id']} }
       # API
       # queried_recipes = Recipe.search(choice, 5)
-      response_text = "Here are the recipes " + formatted_recipes.map { |recipe| recipe.keys }.flatten.join(', ')
+      response_text = "Here are the recipes " + formatted_recipes.each_with_index.map { |recipe, i| "Recipe number #{i + 1}, #{recipe.keys}" }.flatten.join(', ')
       return Alexa::Response.build(response_text: response_text, session_attributes: { recipes: formatted_recipes })
     end
 
