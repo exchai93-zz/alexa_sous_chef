@@ -13,6 +13,11 @@ class Recipe
     @contents = contents
   end
 
+  def self.search(ingredient, number, api = FatSecret)
+    api.recipes_search(ingredient, number)
+  end
+
+
   def self.find(number, api = FatSecret)
     contents = api.recipe(number)
     new(add_stepNumber(contents))
