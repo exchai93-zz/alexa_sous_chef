@@ -2,6 +2,8 @@ require 'dotenv/load'
 require 'net/http'
 require 'fatsecret'
 
+FatSecret.init(ENV["FATSECRET_KEY"],ENV["FATSECRET_SECRET"])
+
 
 class Recipe
 
@@ -10,6 +12,13 @@ class Recipe
   def initialize(contents)
     @contents = contents
   end
+
+  def self.search(ingredient, number, api = FatSecret)
+    query = api.search_recipes(ingredient, number)
+    query['recipes']['recipe'].map! { |recipe| {recipe['recipe_name'] => recipe['recipe_id']} }
+    query['recipes']['recipe']
+  end
+
 
   def self.find(number, api = FatSecret)
     contents = api.recipe(number)
