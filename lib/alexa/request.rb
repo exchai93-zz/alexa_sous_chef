@@ -19,7 +19,8 @@ module Alexa
       request["request"]["intent"]["name"]
     end
 
-    # def request_type
-    # end
+    def request_type
+      request['request']['type']
+    end
   end
 end
