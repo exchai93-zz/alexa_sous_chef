@@ -18,16 +18,6 @@ class AlexaChef < Sinatra::Base
     if alexa_request.intent_name == 'Ingredients'
       return respond_with_ingredients(alexa_request)
     end
-      # recipe_name = alexa_request.session_attribute("recipeName")
-      # read = alexa_request.slot_value("Read")
-      # recipe = JSON.parse(File.read("sample_json.rb"))
-      #
-      # if alexa_request.slot_value("Read") == "read ingredients"
-      #   recipe_ingredients = recipe['recipe']['ingredients']['ingredient']['ingredient_description']
-      #   response_text = "Here are the ingredients: " + recipe_ingredients
-      # end
-      #
-      #  return Alexa::Response.build(response_text: response_text, session_attributes: { recipeName: recipe_name} )
 
     if alexa_request.intent_name == 'Steps'
       return respond_with_step(alexa_request)
