@@ -6,9 +6,6 @@ require 'fatsecret'
 class Recipe
 
   attr_reader :contents
-  # class << self; attr_accessor :stepNumber end
-  # Recipe.stepNumber = 0
-
 
   def initialize(contents)
     @contents = contents
@@ -24,13 +21,12 @@ class Recipe
   end
 
   def ingredients
-    contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}.join(', ') 
+    contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}.join(', ')
   end
 
   def step(input)
     increment_step if input == 'next'
     stepNumber = contents['stepNumber']
-    p stepNumber
     contents['recipe']['directions']['direction'][stepNumber]['direction_description']
   end
 
