@@ -16,7 +16,7 @@ class AlexaChef < Sinatra::Base
     end
 
     if alexa_request.intent_name == 'Ingredients'
-      return respond_with_ingredients
+      return respond_with_ingredients(alexa_request)
     end
       # recipe_name = alexa_request.session_attribute("recipeName")
       # read = alexa_request.slot_value("Read")
@@ -51,4 +51,5 @@ class AlexaChef < Sinatra::Base
     response_text = recipe.step(alexa_request.slot_value("Action"))
     return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents})
   end
+end
 end
