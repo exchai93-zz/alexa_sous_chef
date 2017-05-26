@@ -38,10 +38,20 @@ class AlexaChef < Sinatra::Base
       return respond_with_pause(alexa_request)
     end
 
+    if alexa_request.intent_name == 'AMAZON.ResumeIntent'
+      return respond_with_resume(alexa_request)
+    end
+
   end
 
-    def response_with_pause(alexa_request)
+    def respond_with_pause(alexa_request)
       response_text = "Successfully paused, say Resume to continue"
+      return Alexa::Response.build(response_text: response_text, session_attributes:)
+    end
+
+    def respond_with_resume(alexa_request)
+      response_text = "Resuming"
+      return Alexa::Response.build(response_text: response_text)
     end
 
     def respond_with_recipes(alexa_request)
