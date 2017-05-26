@@ -24,7 +24,7 @@ class Recipe
   end
 
   def ingredients
-    contents['recipe']['ingredients']['ingredient']['ingredient_description']
+    contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}.join(', ') 
   end
 
   def step(input)
