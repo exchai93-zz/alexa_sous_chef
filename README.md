@@ -14,19 +14,12 @@ Technologies used:
 ### Testing:
 
 ### Our approach:
-As four Maker's who enjoy our fair share of cooking, we agreed that the growing number of online recipes and resultant use of electrical devices in the kitchen created a common problem... Going back and forth checking the recipe instructions was disruptive to our overall cooking experience and the danger of splattering ingredients over our devices. From our research, we spotted a lack of Alexa skills available to help with this issue and wanted to create a hands free cooking experience. 
+
+As four Maker's who enjoy our fair share of cooking, we agreed that the growing number of online recipes and resultant use of electrical devices in the kitchen created a common problem... Going back and forth checking the recipe instructions was disruptive to our overall cooking experience and the danger of splattering ingredients over our devices. From our research, we spotted a lack of Alexa skills available to help with this issue and wanted to create a hands free cooking experience.
 
 ### Future improvements:
 
-Collaborators: @connie-reinholdsson @emmpak @eugeniaguerrero @exchai93
-
-### How to
-
-### Testing
-
-### Future improvements
-
-### User Stories
+### User Stories:
 
 ```
 As a user,
