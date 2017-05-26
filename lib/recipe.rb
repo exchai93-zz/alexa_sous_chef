@@ -2,32 +2,42 @@ require 'dotenv/load'
 require 'net/http'
 require 'fatsecret'
 
-FatSecret.init(ENV["FATSECRET_KEY"],ENV["FATSECRET_SECRET"])
-
 
 class Recipe
 
-  attr_reader :recipe
+  attr_reader :contents
 
-  def initialize(recipe)
-    @recipe = recipe
+  def initialize(contents)
+    @contents = contents
   end
 
   def self.find(number, api = FatSecret)
-    new(api.recipe(number))
+    contents = api.recipe(number)
+    new(add_stepNumber(contents))
   end
 
   def name
-    recipe['recipe']['recipe_name']
+    contents['recipe']['recipe_name']
   end
 
-  def start_cooking_step
-    recipe['recipe']['directions']['direction'][0]['direction_description']
+  def ingredients
+    contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}.join(', ')
   end
 
-  def step(number)
-    recipe['recipe']['directions']['direction'][number]['direction_description']
+  def step(input)
+    increment_step if input == 'next'
+    stepNumber = contents['stepNumber']
+    contents['recipe']['directions']['direction'][stepNumber]['direction_description']
   end
 
+  private
 
+  def increment_step
+    contents['stepNumber'] += 1
+  end
+
+  def self.add_stepNumber(contents)
+    contents['stepNumber'] = 0
+    return contents
+  end
 end

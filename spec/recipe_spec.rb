@@ -3,7 +3,7 @@ require 'recipe'
 RSpec.describe Recipe do
   let(:recipe_file) { JSON.parse(File.read('sample_json.rb')) }
   let(:fat_secret) { double(:fat_secret, recipe: recipe_file)}
-  subject(:recipe) { described_class.new(recipe_file) }
+  subject(:recipe) { described_class.find(91, fat_secret) }
 
   describe '.find' do
     it 'finds the recipe' do
@@ -23,15 +23,23 @@ RSpec.describe Recipe do
     end
   end
 
-  describe '#start_cooking_step' do
-    it 'returns the first step of the recipe' do
-      expect(recipe.start_cooking_step).to eq "Preheat oven to 390 °F (200 °C)."
+  describe '#ingredients' do
+    it 'returns the ingredients of the recipe' do
+      expect(recipe.ingredients).to eq "1 1\/2 lbs snapper fillets, 3 tbsps lemon rind, finely chopped"
     end
   end
 
   describe '#step' do
-    it 'returns the instructions for the specified step' do
-      expect(recipe.step(1)).to eq "Go fishing."
+    context 'user asks for next step' do
+      it 'returns the next step' do
+        expect(recipe.step('next')).to eq "Go fishing."
+      end
+    end
+
+    context 'user starts cooking' do
+      it 'returns the instructions for the first step' do
+        expect(recipe.step('start cooking')).to eq "Preheat oven to 390 °F (200 °C)."
+      end
     end
   end
 end

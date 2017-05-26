@@ -3,6 +3,7 @@ source "https://rubygems.org"
 
 gem "sinatra"
 gem 'fatsecret-api'
+gem 'pry'
 
 group :development, :test do
   gem 'dotenv'
