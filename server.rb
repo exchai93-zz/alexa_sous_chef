@@ -38,20 +38,24 @@ class AlexaChef < Sinatra::Base
 
     def respond_with_recipes(alexa_request)
       choice = alexa_request.slot_value('Ingredient')
-      # recipes = Recipe.search(choice, 5)
-      recipes = JSON.parse(File.read('search_json.rb'))['recipes']['recipe']
-      recipes_session = recipes.map { |recipe| {recipe['recipe_name'] => recipe['recipe_id']} }
-      response_text = "Here are the recipes " + recipes.map { |recipe| recipe.keys }.flatten.join(', ')
-      return Alexa::Response.build(response_text: response_text, session_attributes: { recipes: recipes_session })
+      # Stubbed API
+      queried_recipes = JSON.parse(File.read('search_json.rb'))['recipes']['recipe']
+      # API
+      # queried_recipes = Recipe.search(choice, 5)
+      formatted_recipes = queried_recipes.map { |recipe| {recipe['recipe_name'] => recipe['recipe_id']} }
+      response_text = "Here are the recipes " + formatted_recipes.map { |recipe| recipe.keys }.flatten.join(', ')
+      return Alexa::Response.build(response_text: response_text, session_attributes: { recipes: formatted_recipes })
     end
 
 
     def respond_with_recipe_name(alexa_request)
-      recipes_session = alexa_request.session_attribute('recipes')
-      choice = alexa_request.slot_value('Recipe').to_i
-      chosen_recipe = recipes_session[choice].values.pop.to_i
-      # recipe = Recipe.new(JSON.parse(File.read("recipe_json.rb")))
-      recipe = Recipe.find(chosen_recipe)
+      # Stubbed API
+      recipe = Recipe.new(JSON.parse(File.read("recipe_json.rb")))
+      # API
+      # formatted_recipes = alexa_request.session_attribute('recipes')
+      # choice = alexa_request.slot_value('Recipe').to_i -1
+      # recipe_id = recipes_session[choice].values.pop.to_i
+      # recipe = Recipe.find(recipe_id)
       response_text = "Found " + recipe.name
       return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents })
     end
