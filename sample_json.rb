@@ -27,12 +27,12 @@
             "serving_id": "47968"
           },
           {
-            "food_id"=>"35852",
-            "food_name"=>"Lemon Peel",
-            "ingredient_description"=>"3 tbsps lemon rind, finely chopped",
-            "measurement_description"=>"tbsp",
-            "number_of_units"=>"3.000",
-            "serving_id"=>"33142"
+            "food_id": "35852",
+            "food_name": "Lemon Peel",
+            "ingredient_description": "3 tbsps lemon rind, finely chopped",
+            "measurement_description": "tbsp",
+            "number_of_units": "3.000",
+            "serving_id": "33142"
           }
         ]
       },

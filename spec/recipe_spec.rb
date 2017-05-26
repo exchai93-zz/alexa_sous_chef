@@ -25,7 +25,7 @@ RSpec.describe Recipe do
 
   describe '#ingredients' do
     it 'returns the ingredients of the recipe' do
-      expect(recipe.ingredients).to eq "1 1\/2 lbs snapper fillets"
+      expect(recipe.ingredients).to eq "1 1\/2 lbs snapper fillets, 3 tbsps lemon rind, finely chopped"
     end
   end
 
