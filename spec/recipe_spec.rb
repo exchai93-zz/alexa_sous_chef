@@ -1,8 +1,9 @@
 require 'recipe'
 
 RSpec.describe Recipe do
-  let(:recipe_file) { JSON.parse(File.read('sample_json.rb')) }
-  let(:fat_secret) { double(:fat_secret, recipe: recipe_file)}
+  let(:recipe_file) { JSON.parse(File.read('recipe_json.rb')) }
+  let(:search_file ) { JSON.parse(File.read('search_json.rb')) }
+  let(:fat_secret) { double(:fat_secret, recipe: recipe_file, recipes_search: search_file)}
   subject(:recipe) { described_class.find(91, fat_secret) }
 
   describe '.search' do

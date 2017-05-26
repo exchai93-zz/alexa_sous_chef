@@ -14,7 +14,9 @@ class Recipe
   end
 
   def self.search(ingredient, number, api = FatSecret)
-    api.recipes_search(ingredient, number)
+    query = api.recipes_search(ingredient, number)
+    query['recipes']['recipe'].map! { |recipe| {recipe['recipe_name'] => recipe['recipe_id']} }
+    p query['recipes']['recipe']
   end
 
 

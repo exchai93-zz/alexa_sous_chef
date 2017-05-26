@@ -44,7 +44,7 @@ class AlexaChef < Sinatra::Base
 
     def respond_with_recipe_name(alexa_request)
       # recipe = Recipe.find(91)
-      recipe = Recipe.new(JSON.parse(File.read("sample_json.rb")))
+      recipe = Recipe.new(JSON.parse(File.read("recipe_json.rb")))
       response_text = "Found " + recipe.name
       return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents })
     end
