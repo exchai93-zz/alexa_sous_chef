@@ -34,6 +34,9 @@ class AlexaChef < Sinatra::Base
       return respond_with_stop(alexa_request)
     end
 
+    if alexa_request.intent_name == 'AMAZON.StartOverIntent'
+      return respond_with_start_over(alexa_request)
+    end
   end
 
     def respond_with_recipes(alexa_request)
@@ -79,5 +82,10 @@ class AlexaChef < Sinatra::Base
     def respond_with_stop(alexa_request)
       response_text = "Sous Chef successfully ended."
       return Alexa::Response.build(response_text: response_text, end_session: true)
+    end
+
+    def respond_with_start_over(alexa_request)
+      response_text = "Starting over... you can either search for a new recipe or end the session."
+      return Alexa::Response.build(response_text: response_text, session_attributes: {} )
     end
 end
