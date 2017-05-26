@@ -78,6 +78,6 @@ class AlexaChef < Sinatra::Base
 
     def respond_with_stop(alexa_request)
       response_text = "Sous Chef successfully ended."
-      return Alexa::Response.build(response_text: response_text)
+      return Alexa::Response.build(response_text: response_text, end_session: true)
     end
 end
