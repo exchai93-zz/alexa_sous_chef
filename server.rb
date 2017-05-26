@@ -24,22 +24,22 @@ class AlexaChef < Sinatra::Base
     end
   end
 
-  def respond_with_recipe_name(alexa_request)
-    # recipe = Recipe.find(91)
-    recipe = Recipe.new(JSON.parse(File.read("sample_json.rb")))
-    response_text = "Found " + recipe.name
-    return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents })
-  end
+    def respond_with_recipe_name(alexa_request)
+      # recipe = Recipe.find(91)
+      recipe = Recipe.new(JSON.parse(File.read("sample_json.rb")))
+      response_text = "Found " + recipe.name
+      return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents })
+    end
 
-  def respond_with_ingredients(alexa_request)
-    recipe = Recipe.new(alexa_request.session_attribute('recipe'))
-    response_text = "Here are the ingredients: " + recipe.ingredients
-    return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents })
+    def respond_with_ingredients(alexa_request)
+      recipe = Recipe.new(alexa_request.session_attribute('recipe'))
+      response_text = "Here are the ingredients: " + recipe.ingredients
+      return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents })
+    end
 
-  def respond_with_step(alexa_request)
-    recipe = Recipe.new(alexa_request.session_attribute('recipe'))
-    response_text = recipe.step(alexa_request.slot_value("Action"))
-    return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents})
-  end
-end
+    def respond_with_step(alexa_request)
+      recipe = Recipe.new(alexa_request.session_attribute('recipe'))
+      response_text = recipe.step(alexa_request.slot_value("Action"))
+      return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents})
+    end
 end
