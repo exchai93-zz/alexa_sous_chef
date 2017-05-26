@@ -58,7 +58,7 @@ RSpec.describe Alexa::Request do
     end
   end
 
-  describe '#request_type' do
+  describe '#type' do
     it "returns 'LaunchRequest' if user invoked a skill with no specific intent" do
       request_json = {
         "request": {
@@ -68,7 +68,7 @@ RSpec.describe Alexa::Request do
 
       sinatra_request = double("Sinatra::Request", body: StringIO.new(request_json))
 
-      expect(Alexa::Request.new(sinatra_request).request_type).to eq "LaunchRequest"
+      expect(Alexa::Request.new(sinatra_request).type).to eq "LaunchRequest"
     end
   end
 end
