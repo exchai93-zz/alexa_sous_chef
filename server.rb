@@ -34,7 +34,15 @@ class AlexaChef < Sinatra::Base
       return respond_with_stop(alexa_request)
     end
 
+    if alexa_request.intent_name == 'AMAZON.PauseIntent'
+      return respond_with_pause(alexa_request)
+    end
+
   end
+
+    def response_with_pause(alexa_request)
+      response_text = "Successfully paused, say Resume to continue"
+    end
 
     def respond_with_recipes(alexa_request)
       choice = alexa_request.slot_value('Ingredient')
