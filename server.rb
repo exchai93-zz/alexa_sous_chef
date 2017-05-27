@@ -14,34 +14,24 @@ class AlexaChef < Sinatra::Base
       return respond_with_intro(alexa_request)
     end
 
-    if alexa_request.intent_name == 'SearchRecipes'
-      return respond_with_recipes(alexa_request)
-    end
-
-    if alexa_request.intent_name == "FindRecipe"
-      return respond_with_recipe_name(alexa_request)
-    end
-
-    if alexa_request.intent_name == 'Ingredients'
-      return respond_with_ingredients(alexa_request)
-    end
-
-    if alexa_request.intent_name == 'Steps'
-      return respond_with_step(alexa_request)
-    end
-
-    if alexa_request.intent_name == 'AMAZON.HelpIntent'
-      return respond_with_help(alexa_request)
-    end
-
-    if alexa_request.intent_name == 'AMAZON.StopIntent'
-      return respond_with_stop(alexa_request)
-    end
-
-    if alexa_request.intent_name == 'AMAZON.StartOverIntent'
-      return respond_with_start_over(alexa_request)
+    case alexa_request.intent_name
+    when "SearchRecipes"
+      respond_with_recipes(alexa_request)
+    when "FindRecipe"
+      respond_with_recipe_name(alexa_request)
+    when "Ingredients"
+      respond_with_ingredients(alexa_request)
+    when "Steps"
+      respond_with_step(alexa_request)
+    when "AMAZON.HelpIntent"
+      respond_with_help(alexa_request)
+    when "AMAZON.StopIntent"
+      respond_with_stop(alexa_request)
+    when "AMAZON.StartOverIntent"
+      respond_with_start_over(alexa_request)
     end
   end
+
 
     def respond_with_intro(alexa_request)
       response_text = 'Hello Chef. Today, I will be helping you in the kitchen. What would you like to cook? If you tell me an ingredient, I will load some randomized recipes for you. To select a recipe, please specify the number. You can then ask me for the ingredients and the preparation steps. Say help and I will be right there with you.'
