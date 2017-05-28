@@ -18,7 +18,6 @@ module Alexa
     class << self
       def intent(intent_name, &block)
         @@intents[intent_name] = block
-        p @@intents
       end
 
       def handle(request)
