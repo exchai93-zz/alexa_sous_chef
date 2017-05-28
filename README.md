@@ -11,7 +11,7 @@ Welcome to **Alexa Sous Chef**, the ultimate cooking assistant.
 ### Testing
 We used RSpec to test. This choice was influenced both by our familiarity with RSpec and by our desire to write fully test-driven code. So as to avoid exceeding the FatSecret API limit, we mocked our API calls.
 
-### Our approach
+### Our approach
 
 As four Makers who enjoy our fair share of cooking, we agreed that the growing number of online recipes and resultant use of electrical devices in the kitchen disrupted our cooking flow. Going back and forth to check the recipe instructions was disruptive to our overall cooking experience. Additionally, the fact that our recipes were no longer in traditional paperbound cookbooks but on our phones or tablets compounded the probability of accidentally splattering ingredients over our devices. From our research, we spotted a lack of Alexa skills available to help with this issue and thus set out to create a hands-free cooking experience.
 
@@ -25,8 +25,7 @@ As four Makers who enjoy our fair share of cooking, we agreed that the growing n
 
 ### User Stories
 
-```
-As a user,
+```As a user,
 So that I can start using Alexa Sous Chef,
 I want Alexa to launch the skill upon my command.
 
@@ -61,7 +60,7 @@ I want Alexa to have a time function.
 
 Configure the Interaction Model:
 + Fill in the Intent Schema
-  ``` {
+```{
   "intents": [
     {
       "slots": [
@@ -113,13 +112,15 @@ Configure the Interaction Model:
     }
   ]
 }
-  ```
-+ Fill in the Sample Utterances
-  + ``FindRecipe pick {Recipe}``
-  + ``Steps {Action} the recipe``
-  + ``Steps {Action} step``
-  + ``Ingredients {Read}``
-  + ``SearchRecipes search {Ingredient}``
+```
+
+Fill in the Sample Utterances
+```FindRecipe pick {Recipe}
+Steps {Action} the recipe
+Steps {Action} step
+Ingredients {Read}
+SearchRecipes search {Ingredient}
+```
 
 #### To set up locally:
 1. Clone this repository: ``git clone https://github.com/exchai93/alexa_sous_chef.git``
