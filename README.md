@@ -2,7 +2,7 @@
 
 Welcome to **Alexa Sous Chef**, the ultimate cooking assistant.
 
-**Collaborators:** [@connie-reinholdsson](https://github.com/connie-reinholdsson), [@exchai](https://github.com/exchai93), [@emmpak](https://github.com/emmpak), [@eugeniaguerrero](https://github.com/emmpak)
+**Collaborators:** [@connie-reinholdsson](https://github.com/connie-reinholdsson), [@exchai](https://github.com/exchai93), [@emmpak](https://github.com/emmpak), [@eugeniaguerrero](https://github.com/eugeniaguerrero)
 
 ### Technologies used:
 * Ruby (2.4.0)
@@ -25,7 +25,8 @@ As four Makers who enjoy our fair share of cooking, we agreed that the growing n
 
 ### User Stories
 
-```As a user,
+```
+As a user,
 So that I can start using Alexa Sous Chef,
 I want Alexa to launch the skill upon my command.
 
