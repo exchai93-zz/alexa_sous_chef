@@ -12,27 +12,8 @@ class AlexaChef < Sinatra::Base
 
     Alexa::Handlers.handle(request)
 
-    # alexa_request = Alexa::Request.new(request)
-
     # if alexa_request.type == 'LaunchRequest'
     #   return respond_with_intro(alexa_request)
-    # end
-    #
-    # case alexa_request.intent_name
-    # # when "SearchRecipes"
-    # #   respond_with_recipes(alexa_request)
-    # when "FindRecipe"
-    #   respond_with_recipe_name(alexa_request)
-    # when "Ingredients"
-    #   respond_with_ingredients(alexa_request)
-    # when "Steps"
-    #   respond_with_step(alexa_request)
-    # when "AMAZON.HelpIntent"
-    #   respond_with_help(alexa_request)
-    # when "AMAZON.StopIntent"
-    #   respond_with_stop(alexa_request)
-    # when "AMAZON.StartOverIntent"
-    #   respond_with_start_over(alexa_request)
     # end
   end
 
