@@ -1,6 +1,6 @@
 # Alexa Sous Chef
 
-Welcome to **Alexa Sous Chef**, the ultimate cooking assistant.
+Welcome to **Alexa Sous Chef**, the ultimate virtual cooking assistant.
 
 **Collaborators:** [@connie-reinholdsson](https://github.com/connie-reinholdsson), [@exchai](https://github.com/exchai93), [@emmpak](https://github.com/emmpak), [@eugeniaguerrero](https://github.com/eugeniaguerrero)
 
@@ -133,7 +133,7 @@ SearchRecipes search {Ingredient}
   + ``FATSECRET_KEY='FATSECRET_KEY'``
   + ``FATSECRET_SECRET='FATSECRET_SECRET'``
 
-### To run:
+#### To run:
 5. Start rackup: ``rackup -p 4567``
 6. Start ngrok: ``./ngrok http 4567``
 7. Ask Alexa to open the Skill: `Alexa, open Sous Chef.`
