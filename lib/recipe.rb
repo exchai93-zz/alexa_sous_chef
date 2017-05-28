@@ -41,6 +41,7 @@ class Recipe
 
   private
 
+
   def increment_step
     contents['stepNumber'] += 1
   end

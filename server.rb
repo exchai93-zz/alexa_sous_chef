@@ -79,6 +79,9 @@ class AlexaChef < Sinatra::Base
     end
 
     def respond_with_ingredients_steps(alexa_request)
+      recipe = Recipe.new(alexa_request.session_attribute('recipe'))
+      response_text = "Here are the ingredients: " + recipe.ingredients_step(alexa_request.slot_value("ActionIngredient"))
+      return Alexa::Response.build(respond_text: response_text, session_attributes: { recipe: recipe.contents })
     end
 
     def respond_with_step(alexa_request)
