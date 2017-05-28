@@ -46,7 +46,7 @@ class AlexaChef < Sinatra::Base
 
     def respond_with_pause(alexa_request)
       response_text = "Successfully paused, say Resume to continue"
-      return Alexa::Response.build(response_text: response_text, session_attributes:)
+      return Alexa::Response.build(response_text: response_text)
     end
 
     def respond_with_resume(alexa_request)
