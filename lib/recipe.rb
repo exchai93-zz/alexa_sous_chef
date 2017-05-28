@@ -39,9 +39,14 @@ class Recipe
     contents['recipe']['directions']['direction'][stepNumber]['direction_description']
   end
 
+  def ingredient_step(input)
+    increment_step if input == 'yes'
+    stepNumber = contents['stepNumber']
+    contents['recipe']['ingredients']['ingredient'][stepNumber]['ingredient_description']
+  end
+
   private
-
-
+  
   def increment_step
     contents['stepNumber'] += 1
   end
