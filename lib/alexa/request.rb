@@ -5,6 +5,7 @@ module Alexa
 
     def initialize(sinatra_request)
       @request = JSON.parse(sinatra_request.body.read)
+      p @request
     end
 
     def slot_value(slot_name)

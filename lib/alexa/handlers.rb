@@ -1,9 +1,11 @@
-require './lib/alexa/request'
-require './lib/alexa/response'
+require_relative './request'
+require_relative './response'
 
 module Alexa
   class Handlers
     @@intents = {}
+
+    attr_reader :request
 
     def initialize(request)
       @request = request
@@ -16,22 +18,22 @@ module Alexa
     class << self
       def intent(intent_name, &block)
         @@intents[intent_name] = block
+        p @@intents
       end
 
       def handle(request)
         new(Alexa::Request.new(request)).handle
       end
-
-      attr_reader :request
-
-      def registered_intent(intent_name)
-        @@intents[intent_name]
-      end
-
-      def respond(response_details)
-        Alexs::Response.build(response_details)
-      end
-
-      private :request, :registered_intent
     end
+
+    def registered_intent(intent_name)
+      @@intents[intent_name]
+    end
+
+    def respond(response_details)
+      Alexa::Response.build(response_details)
+    end
+
+    private :request, :registered_intent
   end
+end
