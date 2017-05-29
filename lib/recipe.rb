@@ -4,8 +4,8 @@ require 'fatsecret'
 
 FatSecret.init(ENV["FATSECRET_KEY"],ENV["FATSECRET_SECRET"])
 
-
 class Recipe
+  INGREDIENTS = File.read('./lib/ingredients.txt').each_line.inject([]) { |memo, line| memo << line.strip }
 
   attr_reader :contents
 
