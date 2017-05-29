@@ -29,9 +29,35 @@ class Recipe
     contents['recipe']['recipe_name']
   end
 
+  def choice(input)
+    if input == 'Altogether'
+      return ingredients
+    elsif input == 'Step by step'
+      return ingredient_step(input)
+    end
+  end
+
   def ingredients
     contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}.join(', ')
   end
+  #
+  # def ingredient_steps(input)
+  #   count = 0
+  #   count += 1 if input == 'next'
+  #   arr = contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}.join(', ')
+  #   arr[count] until count <= arr.length
+  # end
+
+  def ingredients_step(input)
+  increment_ingredient_step if input == 'next'
+  ingredientStepNumber = contents['ingredientStepNumber']
+  contents['recipe']['ingredients']['ingredient'][ingredientStepNumber]['ingredient_description']
+end
+
+
+def increment_ingredient_step
+  contents['ingredientStepNumber'] += 1
+end
 
   def step(input)
     increment_step if input == 'next'
