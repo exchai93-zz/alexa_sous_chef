@@ -15,19 +15,19 @@ class AlexaChef < Sinatra::Base
     end
 
     if alexa_request.intent_name == 'SearchRecipes'
-      return respond_with_recipes(alexa_request)
+      return valid_recipe_search ? respond_with_recipes(alexa_request) : respond_with_recipes_error
     end
 
-    if alexa_request.intent_name == "FindRecipe"
-      return respond_with_recipe_name(alexa_request)
+    if alexa_request.intent_name == 'FindRecipe'
+      return existing_recipe ? respond_with_recipe_name(alexa_request) : respond_with_recipe_name_error
     end
 
     if alexa_request.intent_name == 'Ingredients'
-      return respond_with_ingredients(alexa_request)
+      valid_ingredient ? return respond_with_ingredients(alexa_request) : return respond_with_ingredients_error
     end
 
     if alexa_request.intent_name == 'Steps'
-      return respond_with_step(alexa_request)
+      valid_step ? return respond_with_step(alexa_request) : return respond_with_step_error
     end
 
     if alexa_request.intent_name == 'AMAZON.HelpIntent'
@@ -41,7 +41,8 @@ class AlexaChef < Sinatra::Base
     if alexa_request.intent_name == 'AMAZON.StartOverIntent'
       return respond_with_start_over(alexa_request)
     end
-  end
+
+end
 
     def respond_with_intro(alexa_request)
       response_text = 'Hello Chef. Today, I will be helping you in the kitchen. What would you like to cook? If you tell me an ingredient, I will load some randomized recipes for you. To select a recipe, please specify the number. You can then ask me for the ingredients and the preparation steps. Say help and I will be right there with you.'
@@ -84,7 +85,7 @@ class AlexaChef < Sinatra::Base
     end
 
     def respond_with_help(alexa_request)
-      response_text = "Here are some things you could say: Read ingredients, start cooking, start over, next or repeat."
+      response_text = "Here are some things you could say: Read ingredients, start cooking, start over, next, repeat or stop."
       return Alexa::Response.build(response_text: response_text)
     end
 
@@ -96,5 +97,10 @@ class AlexaChef < Sinatra::Base
     def respond_with_start_over(alexa_request)
       response_text = "Starting over... you can either search for a new recipe or end the session."
       return Alexa::Response.build(response_text: response_text, session_attributes: {} )
+    end
+
+    def respond_with_error(alexa_request)
+      response_text = "I'm sorry, I didn't understand that. Please try again."
+      return Alexa::Response.build(response_text: response_text)
     end
 end
