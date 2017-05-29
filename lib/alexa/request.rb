@@ -16,7 +16,12 @@ module Alexa
     end
 
     def intent_name
-      @request["request"]["intent"]["name"]
+      return request["request"]["type"] if self.type == 'LaunchRequest'
+      request["request"]["intent"]["name"]
+    end
+
+    def type
+      request['request']['type']
     end
   end
 end

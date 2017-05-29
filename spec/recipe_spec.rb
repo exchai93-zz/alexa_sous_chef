@@ -50,4 +50,12 @@ RSpec.describe Recipe do
       end
     end
   end
+
+  describe '.unavailable_ingredients' do
+    it 'filter a list of ingredients, returning the unavailable ones' do
+      expect(described_class.unavailable_ingredients(['Pasta','Chicken'])).to be_empty
+      expect(described_class.unavailable_ingredients(['Saffron','Cake'])).to eq ['Saffron','Cake']
+      expect(described_class.unavailable_ingredients(['Pasta','Cake'])).to eq ['Cake']
+    end
+  end
 end
