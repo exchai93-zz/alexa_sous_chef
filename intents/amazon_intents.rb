@@ -1,5 +1,5 @@
-intent "AMAZON.LaunchRequest" do
-  response_text = 'Hello Chef. Today, I will be helping you in the kitchen. What would you like to cook? If you tell me an ingredient, I will load some randomized recipes for you. To select a recipe, please specify the number. You can then ask me for the ingredients and the preparation steps. Say help and I will be right there with you.'
+intent "LaunchRequest" do
+  response_text = 'Hello Chef. Today, I will be helping you in the kitchen. What would you like to cook? If you tell me an ingredient, I will load some recipes for you. You can provide up to three ingredients. For example, chicken, sweet potato, spinach. To select a recipe, please specify the number. You can then ask me for the ingredients and the preparation steps. Say help and I will be right there with you.'
   respond(response_text: response_text)
 end
 

@@ -56,10 +56,22 @@ RSpec.describe Alexa::Request do
 
       expect(Alexa::Request.new(sinatra_request).intent_name).to eq "IntentName"
     end
+
+    it 'returns the type if LaunchRequest' do
+      request_json = {
+        "request": {
+          "type": "LaunchRequest",
+        }
+      }.to_json
+
+      sinatra_request = double("Sinatra::Request", body: StringIO.new(request_json))
+
+      expect(Alexa::Request.new(sinatra_request).intent_name).to eq "LaunchRequest"
+    end
   end
 
   describe '#type' do
-    it "returns 'LaunchRequest' if user invoked a skill with no specific intent" do
+    it "returns the type of the request" do
       request_json = {
         "request": {
           "type": "LaunchRequest",
