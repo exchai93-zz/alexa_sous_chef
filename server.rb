@@ -10,16 +10,16 @@ class AlexaChef < Sinatra::Base
 
   post '/' do
 
+    if Alexa::Request.new(request).type == 'LaunchRequest'
+      return respond_with_intro(alexa_request)
+    end
     Alexa::Handlers.handle(request)
 
-    # if alexa_request.type == 'LaunchRequest'
-    #   return respond_with_intro(alexa_request)
-    # end
   end
 
 
-    # def respond_with_intro(alexa_request)
-    #   response_text = 'Hello Chef. Today, I will be helping you in the kitchen. What would you like to cook? If you tell me an ingredient, I will load some randomized recipes for you. To select a recipe, please specify the number. You can then ask me for the ingredients and the preparation steps. Say help and I will be right there with you.'
-    #   return Alexa::Response.build(response_text: response_text)
-    # end
+    def respond_with_intro(alexa_request)
+      response_text = 'Hello Chef. Today, I will be helping you in the kitchen. What would you like to cook? If you tell me an ingredient, I will load some randomized recipes for you. To select a recipe, please specify the number. You can then ask me for the ingredients and the preparation steps. Say help and I will be right there with you.'
+      return Alexa::Response.build(response_text: response_text)
+    end
 end
