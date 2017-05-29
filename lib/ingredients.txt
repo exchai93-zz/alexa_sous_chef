@@ -86,7 +86,7 @@ Capers
 Capsicum
 Pepper
 Celery
-Chesnut
+Chestnut
 Chilli
 Chickpea
 Mushroom
@@ -124,7 +124,7 @@ Cucumber
 Custard apple
 Damson
 Date
-Drangonfruit
+Dragonfruit
 Durian
 Elderberry
 Feijoa
@@ -133,7 +133,7 @@ Goji berry
 Gooseberry
 Grape
 Raisin
-Grapefuit
+Grapefruit
 Guava
 Honeyberry
 Huckleberry
@@ -216,7 +216,7 @@ yeast
 dark brown sugar
 Espresso powder
 jam
-gelatin
+Gelatin
 Cheddar
 Halloumi
 Stilton
@@ -236,7 +236,7 @@ Evaporated milk
 Feta
 Fromage frais
 Ghee
-Kefit
+Kefir
 Cows milk
 Sheep milk
 Goats milk
@@ -335,10 +335,10 @@ Maple syrup
 Nutella
 Pesto
 Tartar sauce
-Teriyaki suace
+Teriyaki sauce
 Sauerkraut
 Salsa
-Gaucamole
+Guacamole
 Corn syrup
 Vegemite
 Sweet and sour
@@ -354,4 +354,3 @@ Hummus
 Salsa verde
 Mole
 Fish sauce
- 
