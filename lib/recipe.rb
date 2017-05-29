@@ -19,10 +19,13 @@ class Recipe
     query['recipes']['recipe']
   end
 
-
   def self.find(number, api = FatSecret)
     contents = api.recipe(number)
     new(add_stepNumber(contents))
+  end
+
+  def self.unavailable_ingredients(ingredients)
+    ingredients.reject { |ingredient| INGREDIENTS.include?(ingredient) }
   end
 
   def name
