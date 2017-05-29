@@ -38,8 +38,7 @@ class Recipe
 
   def step(input)
     increment_step if input == 'next'
-    stepNumber = contents['stepNumber']
-    contents['recipe']['directions']['direction'][stepNumber]['direction_description']
+    get_preparation_step
   end
 
   private
@@ -52,4 +51,10 @@ class Recipe
     contents['stepNumber'] = 0
     return contents
   end
+
+  def get_preparation_step
+    stepNumber = contents['stepNumber']
+    contents['recipe']['directions']['direction'][stepNumber]['direction_description']
+  end
+
 end
