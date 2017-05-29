@@ -68,8 +68,9 @@ class AlexaChef < Sinatra::Base
     end
 
     def respond_with_ingredient_options(alexa_request)
+      recipe = Recipe.new(alexa_request.session_attribute('recipe'))
       response_text = "How would you like the ingredients read? Step by step or altogether?"
-      return Alexa::Response.build(response_text: response_text)
+      return Alexa::Response.build(response_text: response_text, session_attributes: { recipe: recipe.contents })
     end
 
     def respond_with_steps_altogether(alexa_request)
@@ -80,7 +81,7 @@ class AlexaChef < Sinatra::Base
 
     def respond_with_steps_separately(alexa_request)
       recipe = Recipe.new(alexa_request.session_attribute('recipe'))
-      response_text = "Here are the ingredients: " + recipe.ingredients_step(alexa_request.slot_value("ActionIngredient"))
+      response_text = "Here are the ingredients: " + recipe.ingredients_steps(alexa_request.slot_value("OptionOne"))
       return Alexa::Response.build(respond_text: response_text, session_attributes: { recipe: recipe.contents })
     end
 

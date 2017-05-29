@@ -33,23 +33,34 @@ class Recipe
     contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}.join(', ')
   end
 
+  def ingredients_steps(input)
+    count = 0
+    count += 1 if input == 'next'
+    arr = contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}.join(', ')
+    arr[count] until count <= arr.length
+  end
+
   def step(input)
     increment_step if input == 'next'
     stepNumber = contents['stepNumber']
     contents['recipe']['directions']['direction'][stepNumber]['direction_description']
   end
 
-  def ingredients_step(input)
-    increment_step if input == 'yes'
-    stepNumber = contents['stepNumber']
-    contents['recipe']['ingredients']['ingredient'][stepNumber]['ingredient_description']
-  end
+  # def ingredients_step(input)
+  #   increment_ingredient_step if input == 'next'
+  #   ingredientStepNumber = contents['ingredientStepNumber']
+  #   contents['recipe']['ingredients']['ingredient'][ingredientStepNumber]['ingredient_description']
+  # end
 
   private
 
   def increment_step
     contents['stepNumber'] += 1
   end
+  #
+  # def increment_ingredient_step
+  #   contents['ingredientStepNumber'] += 1
+  # end
 
   def self.add_stepNumber(contents)
     contents['stepNumber'] = 0
