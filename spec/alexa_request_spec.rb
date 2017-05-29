@@ -71,7 +71,7 @@ RSpec.describe Alexa::Request do
   end
 
   describe '#type' do
-    it "returns 'LaunchRequest' if user invoked a skill with no specific intent" do
+    it "returns the type of the request" do
       request_json = {
         "request": {
           "type": "LaunchRequest",
