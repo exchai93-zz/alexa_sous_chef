@@ -24,7 +24,6 @@ Quail
 Beef liver
 Calf liver
 Eggs
-Ham
 Bream
 Plaice
 Cod
@@ -90,7 +89,6 @@ Chestnut
 Chilli
 Chickpea
 Mushroom
-Cucumber
 Turnip
 Radish
 Parsnip
@@ -247,7 +245,6 @@ Coconut milk
 Almond milk
 Soya yogurt
 Coconut yogurt
-Coconut milk
 Oat milk
 Almond flour
 Coconut flour
@@ -271,7 +268,6 @@ Bulgar wheat
 Barley
 Buckwheat
 Oats
-Oats
 Quinoa
 Couscous
 Rice
@@ -290,23 +286,23 @@ Cashews
 Pecans
 Chia seeds
 Salt
-pepper
-basil
-oregano
-parsley
-garlic powder
-onion powder
-cinnamon
-nutmeg
-chili
-cumin
-thyme
-fennel
-real vanilla extract
-vanilla extract
-almond extract
-mint extract
-orange extract
+Pepper
+Basil
+Oregano
+Parsley
+Garlic powder
+Onion powder
+Cinnamon
+Nutmeg
+Chili
+Cumin
+Thyme
+Fennel
+Real vanilla extract
+Vanilla extract
+Almond extract
+Mint extract
+Orange extract
 Parsley
 Rosemary
 Bay
@@ -324,7 +320,7 @@ Mint
 Caraway
 Coriander
 Marjoram
-soy sauce
+Soy sauce
 Vinegar
 Balsamic vinegar
 Ketchup
