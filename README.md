@@ -16,26 +16,34 @@ So that I can start using Alexa Sous Chef,
 I want Alexa to launch the skill upon my command.
 
 As a user,
-So that I can choose a recipe,
-I want Alexa to list the available recipes
+So that I can find a recipe to cook,
+I want to search by ingredient.
 
 As a user,
-So that I can start cooking
-I want Alexa to confirm my choice and launch the recipe.
-
-As a user,
-So that check I have the ingredients,
-I want Alexa will list each ingredient and expect a yes / no response.
+So that I can make a choice,
+I want Alexa to list the top five recipes.
 
 As a user,
 So that I can start cooking,
-I want Alexa to read out each step when I say 'next'.
+I want Alexa to confirm my choice and launch the recipe.
+
+As a user,
+So that I can check the ingredients of the recipe,
+I want Alexa to read ingredients altogether or one at a time.
+
+As a user,
+So that I can continue with the recipe,
+I want Alexa to list the preparation steps.
 
 As a user,
 So that I do not miss any information,
-I can ask Alexa to repeat the last sentence.
+I want to ask Alexa to repeat.
 
 As a user,
-So that I can time my cooking,
-I want Alexa to have a time function.
+So that I can restart Sous Chef,
+I want to ask Alexa to start over.
+
+As a user,
+So that I am not lost with what to do,
+I want to ask Alexa for help.
 ```
