@@ -23,8 +23,8 @@ As four Makers who enjoy our fair share of cooking, we agreed that the growing n
 We decided to create the ultimate virtual cooking assistant using Amazon Echo to address this issue. Sous Chef offers X number of recipes and voice-enabled instructions for a hands-free,  smoother and more enjoyable cooking experience.
 
 ### How it works
-- Insert diagrams
-- How the skill is structured (flow of intents)
+Structure of the skill
+![Alt text](/images/Structure.png?raw=true "Structure of skill")
 - What happens when you interact with the skill
 
 ### Future improvements
