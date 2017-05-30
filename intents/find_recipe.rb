@@ -2,7 +2,7 @@ require './lib/recipe'
 
 intent "FindRecipe" do
   available_choices = [1,2,3,4,5]
-  user_input = request.slot_value('Recipe').to_i
+  user_input = request.slot_value('RecipeChoice').to_i
 
   if available_choices.include? user_input
     # Stubbed API
