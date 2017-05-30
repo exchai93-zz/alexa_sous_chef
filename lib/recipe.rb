@@ -33,7 +33,7 @@ class Recipe
   end
 
   def ingredients
-    contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}.join(', ')
+    contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}
   end
 
   def step(input)
