@@ -13,7 +13,7 @@ intent "FindRecipe" do
     # recipe_id = formatted_recipes[user_input - 1].values.pop.to_i
     # recipe = Recipe.find(recipe_id)
 
-    response_text = "Found #{recipe.name}. To continue, ask for the ingredoents or the preparation steps"
+    response_text = "Found #{recipe.name}. To continue, ask for the ingredients or the preparation steps"
     respond(response_text: response_text, session_attributes: { recipe: recipe.contents })
   else
     response_text = "Sorry, that is not a valid choice. Please pick from choices 1 to 5."

@@ -2,7 +2,7 @@ require './lib/recipe'
 
 intent "SearchRecipes" do
     ingredients = ['One', 'Two', 'Three'].inject([]) do |ingredients, ingredient_number|
-      ingredient = request.slot_value("ingredient#{ ingredient_number }")
+      ingredient = request.slot_value("Ingredient#{ ingredient_number }")
       ingredient ? ingredients + [ingredient.capitalize] : ingredients
     end
 
