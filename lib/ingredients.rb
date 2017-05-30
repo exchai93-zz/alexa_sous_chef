@@ -6,6 +6,10 @@ class Ingredients
     @list = format(contents)
   end
 
+  def all
+    list.join(', ')
+  end
+
   private
 
   def format(contents)
