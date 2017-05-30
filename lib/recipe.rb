@@ -33,7 +33,6 @@ class Recipe
   end
 
   def ingredients
-    p JSON.parse(File.read('recipe_json.rb'))['recipe']['ingredients']['ingredient']
     contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}
   end
 
