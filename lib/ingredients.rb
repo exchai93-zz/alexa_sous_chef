@@ -10,6 +10,10 @@ class Ingredients
     list.join(', ')
   end
 
+  def get(number)
+    list[number]
+  end
+
   private
 
   def format(contents)
