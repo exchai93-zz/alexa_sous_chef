@@ -16,8 +16,8 @@ We used RSpec to test. This choice was influenced both by our familiarity with R
 As four Makers who enjoy our fair share of cooking, we agreed that the growing number of online recipes and resultant use of electrical devices in the kitchen disrupted our cooking flow. Going back and forth to check the recipe instructions was disruptive to our overall cooking experience. Additionally, the fact that our recipes were no longer in traditional paperbound cookbooks but on our phones or tablets compounded the probability of accidentally splattering ingredients over our devices. From our research, we spotted a lack of Alexa skills available to help with this issue and thus set out to create a hands-free cooking experience.
 
 ### How it works
-- Insert diagrams
-- How the skill is structured (flow of intents)
+Structure of the skill
+![Alt text](/images/Structure.png?raw=true "Structure of skill")
 - What happens when you interact with the skill
 
 ### Future improvements
