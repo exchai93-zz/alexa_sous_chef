@@ -14,4 +14,15 @@ RSpec.describe Ingredients do
       expect(ingredients.all).to eq recipe_ingredients.join(', ')
     end
   end
+
+  describe '#get' do
+    it 'returns the first ingredient when 0' do
+      expect(ingredients.get(0)).to eq recipe_ingredients.first
+    end
+
+    it ' returns the second ingredient when 1' do
+      expect(ingredients.get(1)).to eq recipe_ingredients.last
+    end
+
+  end
 end
