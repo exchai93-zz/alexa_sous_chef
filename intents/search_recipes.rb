@@ -14,6 +14,7 @@ intent "SearchRecipes" do
       # formatted_recipes = queried_recipes.map { |recipe| {recipe['recipe_name'] => recipe['recipe_id']} }
       # API
       queried_recipes = Recipe.search(ingredients, 5)
+
       respond(response_text: Recipe.format_response(queried_recipes), session_attributes: { recipes: queried_recipes })
     else
       respond(response_text: "I'm afraid I can't find recipes with the following ingredients: #{unavailable_ingredients}. Please choose your ingredients again.")

@@ -9,11 +9,11 @@ intent "AMAZON.StartOverIntent" do
 end
 
 intent "AMAZON.StopIntent" do
-  response_text = "Sous Chef successfully ended."
+  response_text = "I am always at your assistance. Bon Appétit. Sous Chef successfully ended."
   respond(response_text: response_text, end_session: true)
 end
 
 intent "AMAZON.HelpIntent" do
-  response_text = "Here are some things you could say: Read ingredients, start cooking, start over, next or repeat."
+  response_text = "Here are some things you could say. Read ingredients, start cooking, start over, next or repeat."
   respond(response_text: response_text)
 end

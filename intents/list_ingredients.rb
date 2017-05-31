@@ -7,7 +7,9 @@ end
 
 intent "ListIngredientsTogether" do
   recipe = Recipe.new(request.session_attribute('recipe'))
+
   respond(response_text: recipe.ingredients.all, session_attributes: { recipe: recipe.contents })
+
 end
 
 intent "ListIngredientsSeparately" do

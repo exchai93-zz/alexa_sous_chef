@@ -9,6 +9,7 @@ intent "FindRecipe" do
     # recipe = Recipe.new(JSON.parse(File.read("recipe_json.rb")))
     # API
     formatted_recipes = request.session_attribute('recipes')
+
     recipe_id = formatted_recipes[user_input - 1].values.pop.to_i
     recipe = Recipe.find(recipe_id)
 
