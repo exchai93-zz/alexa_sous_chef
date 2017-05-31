@@ -1,16 +1,18 @@
 require 'dotenv/load'
 require 'net/http'
 require 'fatsecret'
+require_relative './ingredients'
 
 FatSecret.init(ENV["FATSECRET_KEY"],ENV["FATSECRET_SECRET"])
 
 class Recipe
   INGREDIENTS = File.read('./lib/ingredients.txt').each_line.inject([]) { |memo, line| memo << line.strip }
 
-  attr_reader :contents
+  attr_reader :contents, :ingredients_class
 
-  def initialize(contents)
+  def initialize(contents, ingredients_class = Ingredients)
     @contents = contents
+    @ingredients_class = ingredients_class
   end
 
   def self.search(ingredient, number, api = FatSecret)
