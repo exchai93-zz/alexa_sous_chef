@@ -6,7 +6,6 @@ require_relative './ingredients'
 FatSecret.init(ENV["FATSECRET_KEY"],ENV["FATSECRET_SECRET"])
 
 class Recipe
-  INGREDIENTS = File.read('./lib/ingredients.txt').each_line.inject([]) { |memo, line| memo << line.strip }
 
   attr_reader :contents, :ingredients
 
@@ -24,10 +23,6 @@ class Recipe
   def self.find(number, api = FatSecret)
     contents = api.recipe(number)
     new(add_stepNumber(contents))
-  end
-
-  def self.unavailable_ingredients(ingredients)
-    ingredients.reject { |ingredient| INGREDIENTS.include?(ingredient) }
   end
 
   def name

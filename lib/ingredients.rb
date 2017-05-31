@@ -1,4 +1,5 @@
 class Ingredients
+  AVAILABLE_INGREDIENTS = File.read('./lib/ingredients.txt').each_line.inject([]) { |memo, line| memo << line.strip }
 
   attr_reader :list
 
@@ -17,6 +18,10 @@ class Ingredients
 
   def options
     "Would you like to hear the ingredients one at a time or altogether? If you choose the former, say next to hear the next ingredient."
+  end
+
+  def self.unavailable(user_ingredients)
+    user_ingredients.reject { |ingredient| AVAILABLE_INGREDIENTS.include?(ingredient) }
   end
 
   private

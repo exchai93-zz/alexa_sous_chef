@@ -6,7 +6,7 @@ intent "SearchRecipes" do
       ingredient ? ingredients + [ingredient.capitalize] : ingredients
     end
 
-    unavailable_ingredients = Recipe.unavailable_ingredients(ingredients)
+    unavailable_ingredients = Ingredients.unavailable(ingredients)
 
     if unavailable_ingredients.empty?
       # Stubbed API

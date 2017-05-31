@@ -30,4 +30,12 @@ RSpec.describe Ingredients do
       expect(ingredients.options).to eq "Would you like to hear the ingredients one at a time or altogether? If you choose the former, say next to hear the next ingredient."
     end
   end
+
+  describe '.unavailable' do
+    it 'filter a list of ingredients, returning the unavailable ones' do
+      expect(described_class.unavailable(['Pasta','Chicken'])).to be_empty
+      expect(described_class.unavailable(['Saffron','Cake'])).to eq ['Saffron','Cake']
+      expect(described_class.unavailable(['Pasta','Cake'])).to eq ['Cake']
+    end
+  end
 end
