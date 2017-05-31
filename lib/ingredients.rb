@@ -19,10 +19,6 @@ class Ingredients
     "The last ingredient is + #{list.last}"
   end
 
-  def last?(number)
-    number == list.count - 1
-  end
-
   def options
     "Would you like to hear the ingredients one at a time or altogether? If you choose the former, say next to hear the next ingredient."
   end
@@ -31,5 +27,9 @@ class Ingredients
 
   def format(contents)
     contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}
+  end
+
+  def last?(number)
+    number == list.count - 1
   end
 end

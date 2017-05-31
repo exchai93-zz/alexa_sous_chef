@@ -34,10 +34,6 @@ class Recipe
     contents['recipe']['recipe_name']
   end
 
-  # def ingredients
-  #   contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}
-  # end
-
   def step(input)
     increment_step if input == 'next'
     get_preparation_step
