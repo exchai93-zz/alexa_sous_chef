@@ -17,7 +17,7 @@ intent "SearchRecipes" do
       response_text = "Here are the recipes " + formatted_recipes.each_with_index.map { |recipe, i| "Recipe number #{i + 1}, #{recipe.keys}" }.flatten.join(', ')
       respond(response_text: response_text, session_attributes: { recipes: formatted_recipes })
     else
-      response_text = "I'm afraid I can't find recipes with the following ingredients: #{unavailable_ingredients.join(', ')}. Please choose your ingredients again."
+      response_text = "I'm afraid I can't find recipes with the following ingredients: #{unavailable_ingredients}. Please choose your ingredients again."
       respond(response_text: response_text)
     end
 end
