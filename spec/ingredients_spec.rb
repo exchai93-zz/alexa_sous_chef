@@ -20,8 +20,8 @@ RSpec.describe Ingredients do
       expect(ingredients.get(0)).to eq recipe_ingredients.first
     end
 
-    it ' returns the second ingredient when 1' do
-      expect(ingredients.get(1)).to eq recipe_ingredients.last
+    it ' returns the a specific response for the last ingredient' do
+      expect(ingredients.get(1)).to eq "The last ingredient is #{recipe_ingredients.last}"
     end
   end
 
