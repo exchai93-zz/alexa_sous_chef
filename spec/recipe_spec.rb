@@ -33,6 +33,13 @@ RSpec.describe Recipe do
     end
   end
 
+  describe '.format_response' do
+    it 'returns the queried recipes as a string' do
+      queried_recipes = [{"Marinated Herb Chicken"=>"84411"}, {"Sweet Yogurt Mustard Sauce"=>"84764"}]
+      expect(described_class.format_response(queried_recipes)).to eq "Here are the recipes. Recipe number 1, [\"Marinated Herb Chicken\"], Recipe number 2, [\"Sweet Yogurt Mustard Sauce\"]"
+    end
+  end
+
   describe '#name' do
     it 'returns the recipe name if found' do
       expect(recipe.name).to eq "Baked Lemon Snapper"

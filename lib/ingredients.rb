@@ -21,7 +21,6 @@ class Ingredients
   end
 
   def self.unavailable(user_ingredients)
-    # return user_ingredients.first if user_ingredients.count == 1
     user_ingredients.reject { |ingredient| AVAILABLE_INGREDIENTS.include?(ingredient) }.join(', ')
   end
 

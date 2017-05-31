@@ -17,12 +17,16 @@ class Recipe
   def self.search(ingredient, number, api = FatSecret)
     query = api.search_recipes(ingredient.join(" "), number)
     query['recipes']['recipe'].map! { |recipe| {recipe['recipe_name'] => recipe['recipe_id']} }
-    query['recipes']['recipe']
   end
 
   def self.find(number, api = FatSecret)
     contents = api.recipe(number)
     new(add_stepNumber(contents))
+  end
+
+  def self.format_response(recipes)
+    recipes = recipes.each_with_index.map { |recipe, i| "Recipe number #{i + 1}, #{recipe.keys}" }.flatten.join(', ')
+    "Here are the recipes. #{recipes}"
   end
 
   def name
