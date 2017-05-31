@@ -11,7 +11,7 @@ RSpec.describe Ingredients do
 
   describe '#all' do
     it 'return all ingredients as a string' do
-      expect(ingredients.all).to eq recipe_ingredients.join(', ')
+      expect(ingredients.all).to eq "Here are the ingredients. #{recipe_ingredients.join(', ')}"
     end
   end
 
