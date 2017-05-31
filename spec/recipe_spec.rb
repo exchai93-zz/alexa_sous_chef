@@ -5,12 +5,13 @@ RSpec.describe Recipe do
   let(:search_file ) { JSON.parse(File.read('search_json.rb')) }
   let(:fat_secret) { double(:fat_secret, recipe: recipe_file, search_recipes: search_file)}
   let(:ingredients) { double(:ingredients, list: ['1 1/2 lbs snapper fillets', '3 tbsps lemon rind, finely chopped'])}
-  let(:ingredients_class) { double(:Ingredients, new: ingredients) }
+  let(:ingredients_class) { double(:ingredients_class, new: ingredients) }
   subject(:recipe) { described_class.find(91, fat_secret) }
 
-  it 'saves the Ingredients class' do
+  it 'creates an instance of the Ingredient class with the contents of the recipe' do
+    expect(ingredients_class).to receive(:new).with(recipe_file).and_return(ingredients)
     recipe = described_class.new(recipe_file, ingredients_class)
-    expect(recipe.ingredients_class).to eq ingredients_class
+    expect(recipe.ingredients).to eq ingredients
   end
 
   describe '.search' do

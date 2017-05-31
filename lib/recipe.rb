@@ -10,9 +10,9 @@ class Recipe
 
   attr_reader :contents, :ingredients
 
-  def initialize(contents)
+  def initialize(contents, ingredients=Ingredients)
     @contents = contents
-    @ingredients = Ingredients.new(contents)
+    @ingredients = ingredients.new(contents)
   end
 
   def self.search(ingredient, number, api = FatSecret)
