@@ -25,7 +25,8 @@ We decided to create the ultimate virtual cooking assistant using Amazon Echo to
 ### How it works
 Structure of the skill
 ![Alt text](/images/Structure.png?raw=true "Structure of skill")
-- What happens when you interact with the skill
+Response / request interaction 
+![Alt text](/images/Response.png?raw=true "Response of the skill")
 
 ### Future improvements
 - Deploying the app to Heroku
