@@ -7,21 +7,25 @@ class Ingredients
   end
 
   def all
-    "Here are the ingredients. " + list.join(', ')
+    "Here are the ingredients. #{list.join(', ')}"
   end
 
   def get(number)
+    return last_ingredient if last?(number)
     list[number]
   end
 
-  # def last?
-  #   ingredient_number == (recipe.ingredients.count - 1) ? "The last ingredient is #{ingredient}" : ingredient)
-  # end
+  def last_ingredient
+    "The last ingredient is + #{list.last}"
+  end
+
+  def last?(number)
+    number == list.count - 1
+  end
 
   def options
     "Would you like to hear the ingredients one at a time or altogether? If you choose the former, say next to hear the next ingredient."
   end
-
 
   private
 
