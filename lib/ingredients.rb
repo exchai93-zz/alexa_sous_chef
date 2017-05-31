@@ -14,6 +14,9 @@ class Ingredients
     list[number]
   end
 
+  def last?
+  end
+
   private
 
   def format(contents)

@@ -8,11 +8,11 @@ FatSecret.init(ENV["FATSECRET_KEY"],ENV["FATSECRET_SECRET"])
 class Recipe
   INGREDIENTS = File.read('./lib/ingredients.txt').each_line.inject([]) { |memo, line| memo << line.strip }
 
-  attr_reader :contents, :ingredients_class
+  attr_reader :contents, :ingredients
 
-  def initialize(contents, ingredients_class = Ingredients.new)
+  def initialize(contents)
     @contents = contents
-    @ingredients_class = ingredients_class
+    @ingredients = Ingredients.new(contents)
   end
 
   def self.search(ingredient, number, api = FatSecret)
