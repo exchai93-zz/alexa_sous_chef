@@ -69,13 +69,14 @@ I want Alexa to have a time function.
 
 Configure the Interaction Model:
 + Fill in the Intent Schema
-```{
+```
+{
   "intents": [
     {
       "slots": [
         {
-          "name": "Recipe",
-          "type": "RECIPE"
+          "name": "Choice",
+          "type": "CHOICE"
         }
       ],
       "intent": "FindRecipe"
@@ -87,38 +88,37 @@ Configure the Interaction Model:
           "type": "ACTION"
         }
       ],
-      "intent": "Steps"
-    },
-    {
-      "slots": [
-        {
-          "name": "Read",
-          "type": "READ"
-        }
-      ],
-      "intent": "Ingredients"
+      "intent": "PreparationSteps"
     },
     {
       "intent": "AMAZON.RepeatIntent"
     },
     {
-      "intent": "AMAZON.StartOverIntent"
+      "intent": "ListIngredients"
     },
     {
-      "intent": "AMAZON.StopIntent"
+      "intent": "ListIngredientsTogether"
     },
     {
-      "intent": "AMAZON.HelpIntent"
+      "intent": "ListIngredientsSeparately"
     },
     {
-      "intent": "SearchRecipes",
       "slots": [
         {
-          "name": "Ingredient",
+          "name": "IngredientOne",
+          "type": "INGREDIENT"
+        },
+        {
+          "name": "IngredientTwo",
+          "type": "INGREDIENT"
+        },
+        {
+          "name": "IngredientThree",
           "type": "INGREDIENT"
         }
-      ]
-    }
+      ],
+      "intent": "SearchRecipes"
+    },
   ]
 }
 ```
