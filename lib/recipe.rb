@@ -10,7 +10,7 @@ class Recipe
 
   attr_reader :contents, :ingredients_class
 
-  def initialize(contents, ingredients_class = Ingredients)
+  def initialize(contents, ingredients_class = Ingredients.new)
     @contents = contents
     @ingredients_class = ingredients_class
   end
@@ -34,9 +34,9 @@ class Recipe
     contents['recipe']['recipe_name']
   end
 
-  def ingredients
-    contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}
-  end
+  # def ingredients
+  #   contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}
+  # end
 
   def step(input)
     increment_step if input == 'next'
