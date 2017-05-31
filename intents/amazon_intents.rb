@@ -14,6 +14,6 @@ intent "AMAZON.StopIntent" do
 end
 
 intent "AMAZON.HelpIntent" do
-  response_text = "Here are some things you could say: Read ingredients, start cooking, start over, next or repeat."
+  response_text = "Here are some things you could say. Read ingredients, start cooking, start over, next or repeat."
   respond(response_text: response_text)
 end
