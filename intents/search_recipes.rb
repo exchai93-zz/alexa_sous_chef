@@ -14,10 +14,10 @@ intent "SearchRecipes" do
       # formatted_recipes = queried_recipes.map { |recipe| {recipe['recipe_name'] => recipe['recipe_id']} }
       # API
       queried_recipes = Recipe.search(ingredients, 5)
-      response_text = "Here are the recipes " + queried_recipes.each_with_index.map { |recipe, i| "Recipe number #{i + 1}, #{recipe.keys}" }.flatten.join(', ') + "Which recipe number would you like to cook?"
+      response_text = "Here are the recipes. " + queried_recipes.each_with_index.map { |recipe, i| "Recipe number #{i + 1}, #{recipe.keys}" }.flatten.join(', ') + "Which recipe number would you like to cook?"
       respond(response_text: response_text, session_attributes: { recipes: queried_recipes })
     else
-      response_text = "I'm afraid I can't find recipes with the following ingredients: #{unavailable_ingredients.join(', ')}. Please choose your ingredients again."
+      response_text = "I'm afraid I can't find recipes with the following ingredients. #{unavailable_ingredients.join(', ')}. Please choose your ingredients again."
       respond(response_text: response_text)
     end
 end
