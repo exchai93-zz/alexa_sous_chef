@@ -23,6 +23,11 @@ RSpec.describe Ingredients do
     it ' returns the second ingredient when 1' do
       expect(ingredients.get(1)).to eq recipe_ingredients.last
     end
+  end
 
+  describe '#options' do
+    it 'returns a response for the different ways to read out ingredients' do
+      expect(ingredients.options).to eq "Would you like to hear the ingredients one at a time or altogether? If you choose the former, say next to hear the next ingredient."
+    end
   end
 end

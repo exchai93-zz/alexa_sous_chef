@@ -2,7 +2,7 @@ require './lib/recipe'
 
 intent "ListIngredients" do
   recipe = Recipe.new(request.session_attribute('recipe'))
-  respond(response_text: "Would you like to hear the ingredients one at a time or altogether? If you choose the former, say next to hear the next ingredient.", session_attributes: { recipe: recipe.contents })
+  respond(response_text: recipe.ingredients.options, session_attributes: { recipe: recipe.contents })
 end
 
 intent "ListIngredientsTogether" do
