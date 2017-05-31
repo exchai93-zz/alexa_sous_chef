@@ -4,7 +4,15 @@ RSpec.describe Recipe do
   let(:recipe_file) { JSON.parse(File.read('recipe_json.rb')) }
   let(:search_file ) { JSON.parse(File.read('search_json.rb')) }
   let(:fat_secret) { double(:fat_secret, recipe: recipe_file, search_recipes: search_file)}
+  let(:ingredients) { double(:ingredients, list: ['1 1/2 lbs snapper fillets', '3 tbsps lemon rind, finely chopped'])}
+  let(:ingredients_class) { double(:ingredients_class, new: ingredients) }
   subject(:recipe) { described_class.find(91, fat_secret) }
+
+  it 'creates an instance of the Ingredient class with the contents of the recipe' do
+    expect(ingredients_class).to receive(:new).with(recipe_file).and_return(ingredients)
+    recipe = described_class.new(recipe_file, ingredients_class)
+    expect(recipe.ingredients).to eq ingredients
+  end
 
   describe '.search' do
     it 'retrieves recipes for the specified ingredient' do
@@ -25,15 +33,16 @@ RSpec.describe Recipe do
     end
   end
 
-  describe '#name' do
-    it 'returns the recipe name if found' do
-      expect(recipe.name).to eq "Baked Lemon Snapper"
+  describe '.format_response' do
+    it 'returns the queried recipes as a string' do
+      queried_recipes = [{"Marinated Herb Chicken"=>"84411"}, {"Sweet Yogurt Mustard Sauce"=>"84764"}]
+      expect(described_class.format_response(queried_recipes)).to eq "Here are the recipes. Recipe number 1, [\"Marinated Herb Chicken\"], Recipe number 2, [\"Sweet Yogurt Mustard Sauce\"]"
     end
   end
 
-  describe '#ingredients' do
-    it 'returns the ingredients of the recipe' do
-      expect(recipe.ingredients).to eq "1 1\/2 lbs snapper fillets, 3 tbsps lemon rind, finely chopped"
+  describe '#name' do
+    it 'returns the recipe name if found' do
+      expect(recipe.name).to eq "Baked Lemon Snapper"
     end
   end
 
@@ -48,14 +57,6 @@ RSpec.describe Recipe do
       it 'returns the instructions for the first step' do
         expect(recipe.step('start cooking')).to eq "Preheat oven to 390 °F (200 °C)."
       end
-    end
-  end
-
-  describe '.unavailable_ingredients' do
-    it 'filter a list of ingredients, returning the unavailable ones' do
-      expect(described_class.unavailable_ingredients(['Pasta','Chicken'])).to be_empty
-      expect(described_class.unavailable_ingredients(['Saffron','Cake'])).to eq ['Saffron','Cake']
-      expect(described_class.unavailable_ingredients(['Pasta','Cake'])).to eq ['Cake']
     end
   end
 end

@@ -1,22 +1,22 @@
 require 'dotenv/load'
 require 'net/http'
 require 'fatsecret'
+require_relative './ingredients'
 
 FatSecret.init(ENV["FATSECRET_KEY"],ENV["FATSECRET_SECRET"])
 
 class Recipe
-  INGREDIENTS = File.read('./lib/ingredients.txt').each_line.inject([]) { |memo, line| memo << line.strip }
 
-  attr_reader :contents
+  attr_reader :contents, :ingredients
 
-  def initialize(contents)
+  def initialize(contents, ingredients=Ingredients)
     @contents = contents
+    @ingredients = ingredients.new(contents)
   end
 
   def self.search(ingredient, number, api = FatSecret)
     query = api.search_recipes(ingredient.join(" "), number)
     query['recipes']['recipe'].map! { |recipe| {recipe['recipe_name'] => recipe['recipe_id']} }
-    query['recipes']['recipe']
   end
 
   def self.find(number, api = FatSecret)
@@ -24,16 +24,13 @@ class Recipe
     new(add_stepNumber(contents))
   end
 
-  def self.unavailable_ingredients(ingredients)
-    ingredients.reject { |ingredient| INGREDIENTS.include?(ingredient) }
+  def self.format_response(recipes)
+    recipes = recipes.each_with_index.map { |recipe, i| "Recipe number #{i + 1}, #{recipe.keys}" }.flatten.join(', ')
+    "Here are the recipes. #{recipes}"
   end
 
   def name
     contents['recipe']['recipe_name']
-  end
-
-  def ingredients
-    contents['recipe']['ingredients']['ingredient'].map {|ingredient| ingredient['ingredient_description']}
   end
 
   def step(input)
