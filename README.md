@@ -2,7 +2,7 @@
 
 Welcome to **Alexa Sous Chef**, the ultimate virtual cooking assistant.
 
-**Collaborators:** [@connie-reinholdsson](https://github.com/connie-reinholdsson), [@exchai](https://github.com/exchai93), [@emmpak](https://github.com/emmpak), [@eugeniaguerrero](https://github.com/eugeniaguerrero)
+**Chefs:** [@connie-reinholdsson](https://github.com/connie-reinholdsson), [@exchai](https://github.com/exchai93), [@emmpak](https://github.com/emmpak), [@eugeniaguerrero](https://github.com/emmpak)
 
 ### Technologies used:
 * Ruby (2.4.0)
@@ -17,6 +17,8 @@ We used RSpec to test our code. This choice was influenced both by our familiari
 
 ### Real-world Application
 A recent report by the Consumer Intelligence Research Partners (CIRP) estimated that there are now 8.2 million customers who own an Amazon Echo device, and as customer awareness is increasing RBC Capital Markets predict that Amazon could have 500 million active customers globally by 2020.
+
+### Our approach:
 
 As four Makers who enjoy our fair share of cooking, we agreed that the growing number of online recipes and resultant use of electrical devices in the kitchen disrupted our cooking flow. Going back and forth to check the recipe instructions was disruptive to our overall cooking experience. Additionally, the fact that our recipes were no longer in traditional paperbound cookbooks but on our phones or tablets compounded the probability of accidentally splattering ingredients over our devices.
 
