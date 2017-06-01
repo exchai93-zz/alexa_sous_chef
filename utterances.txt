@@ -1,0 +1,160 @@
+FindRecipe I choose recipe number {Choice}
+FindRecipe I pick number {Choice}
+FindRecipe I pick recipe number {Choice}
+FindRecipe I want number {Choice}
+FindRecipe I want recipe number {Choice}
+FindRecipe I select number {Choice}
+FindRecipe I select recipe number {Choice}
+FindRecipe I want to cook number {Choice}
+FindRecipe I want to cook recipe number {Choice}
+FindRecipe I choose to cook number {Choice}
+FindRecipe I choose to cook recipe number {Choice}
+FindRecipe I am going to cook number {Choice}
+FindRecipe I am going to cook recipe number {Choice}
+FindRecipe I choose recipe number {Choice}
+FindRecipe I pick number {Choice}
+FindRecipe I pick recipe number {Choice}
+FindRecipe I want number {Choice}
+FindRecipe I want recipe number {Choice}
+FindRecipe I select number {Choice}
+FindRecipe I select recipe number {Choice}
+FindRecipe I want to cook number {Choice}
+FindRecipe I want to cook recipe number {Choice}
+FindRecipe I choose to cook number {Choice}
+FindRecipe I choose to cook recipe number {Choice}
+FindRecipe I am going to cook number {Choice}
+FindRecipe I am going to cook recipe number {Choice}
+PreparationSteps {Action}
+PreparationSteps {Action} recipe
+PreparationSteps {Action} step
+PreparationSteps {Action} instruction
+PreparationSteps {Action} direction
+PreparationSteps {Action} the recipe
+PreparationSteps {Action} the step
+PreparationSteps {Action} the instruction
+PreparationSteps {Action} this step
+PreparationSteps {Action} this recipe
+PreparationSteps {Action} this instruction
+PreparationSteps {Action}
+PreparationSteps {Action} recipe
+PreparationSteps {Action} step
+PreparationSteps {Action} instruction
+PreparationSteps {Action} direction
+PreparationSteps {Action} the recipe
+PreparationSteps {Action} the step
+PreparationSteps {Action} the instruction
+PreparationSteps {Action} this step
+PreparationSteps {Action} this recipe
+PreparationSteps {Action} this instruction
+ListIngredients ingredients
+ListIngredients read ingredients
+ListIngredients list ingredients
+ListIngredients read the ingredients
+ListIngredients read me the ingredients
+ListIngredients say ingredients
+ListIngredients say the ingredients
+ListIngredients tell the ingredients
+ListIngredients tell me the ingredients
+ListIngredients what are the ingredients
+ListIngredients ingredients
+ListIngredients read ingredients
+ListIngredients list ingredients
+ListIngredients read the ingredients
+ListIngredients read me the ingredients
+ListIngredients say ingredients
+ListIngredients say the ingredients
+ListIngredients tell the ingredients
+ListIngredients tell me the ingredients
+ListIngredients what are the ingredients
+ListIngredientsTogether alltogether
+ListIngredientsTogether read alltogether
+ListIngredientsTogether read ingredients alltogether
+ListIngredientsTogether say ingredients alltogether
+ListIngredientsTogether read the ingredients alltogether
+ListIngredientsTogether read me the ingredients alltogether
+ListIngredientsTogether tell the ingredients alltogether
+ListIngredientsTogether tell me the ingredients alltogether
+ListIngredientsTogether say the ingredients alltogether
+ListIngredientsTogether alltogether
+ListIngredientsTogether read alltogether
+ListIngredientsTogether read ingredients alltogether
+ListIngredientsTogether say ingredients alltogether
+ListIngredientsTogether read the ingredients alltogether
+ListIngredientsTogether read me the ingredients alltogether
+ListIngredientsTogether tell the ingredients alltogether
+ListIngredientsTogether tell me the ingredients alltogether
+ListIngredientsTogether say the ingredients alltogether
+ListIngredientsSeparately one at a time
+ListIngredientsSeparately read one at a time
+ListIngredientsSeparately read ingredients one at a time
+ListIngredientsSeparately say ingredients one at a time
+ListIngredientsSeparately read the ingredients one at a time
+ListIngredientsSeparately read me the ingredients one at a time
+ListIngredientsSeparately say the ingredients one at a time
+ListIngredientsSeparately next
+ListIngredientsSeparately read next ingredient
+ListIngredientsSeparately say next ingredient
+ListIngredientsSeparately one at a time
+ListIngredientsSeparately read one at a time
+ListIngredientsSeparately read ingredients one at a time
+ListIngredientsSeparately say ingredients one at a time
+ListIngredientsSeparately read the ingredients one at a time
+ListIngredientsSeparately read me the ingredients one at a time
+ListIngredientsSeparately say the ingredients one at a time
+ListIngredientsSeparately next
+ListIngredientsSeparately read next ingredient
+ListIngredientsSeparately say next ingredient
+SearchRecipes search {IngredientOne}
+SearchRecipes search {IngredientOne} {IngredientTwo}
+SearchRecipes search {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes find {IngredientOne}
+SearchRecipes find {IngredientOne} {IngredientTwo}
+SearchRecipes find {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes look for {IngredientOne}
+SearchRecipes look for {IngredientOne} {IngredientTwo}
+SearchRecipes look for {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes search for {IngredientOne}
+SearchRecipes search for {IngredientOne} {IngredientTwo}
+SearchRecipes search for {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes recipes with {IngredientOne}
+SearchRecipes recipes with {IngredientOne} {IngredientTwo}
+SearchRecipes recipes with {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes find recipes with {IngredientOne}
+SearchRecipes find recipes with {IngredientOne} {IngredientTwo}
+SearchRecipes find recipes with {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes look for recipes with {IngredientOne}
+SearchRecipes look for recipes with {IngredientOne} {IngredientTwo}
+SearchRecipes look for recipes with {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes cook with {IngredientOne}
+SearchRecipes cook with {IngredientOne} {IngredientTwo}
+SearchRecipes cook with {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes search for recipes with {IngredientOne}
+SearchRecipes search for recipes with {IngredientOne} {IngredientTwo}
+SearchRecipes search for recipes with {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes search {IngredientOne}
+SearchRecipes search {IngredientOne} {IngredientTwo}
+SearchRecipes search {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes find {IngredientOne}
+SearchRecipes find {IngredientOne} {IngredientTwo}
+SearchRecipes find {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes look for {IngredientOne}
+SearchRecipes look for {IngredientOne} {IngredientTwo}
+SearchRecipes look for {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes search for {IngredientOne}
+SearchRecipes search for {IngredientOne} {IngredientTwo}
+SearchRecipes search for {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes recipes with {IngredientOne}
+SearchRecipes recipes with {IngredientOne} {IngredientTwo}
+SearchRecipes recipes with {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes find recipes with {IngredientOne}
+SearchRecipes find recipes with {IngredientOne} {IngredientTwo}
+SearchRecipes find recipes with {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes look for recipes with {IngredientOne}
+SearchRecipes look for recipes with {IngredientOne} {IngredientTwo}
+SearchRecipes look for recipes with {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes cook with {IngredientOne}
+SearchRecipes cook with {IngredientOne} {IngredientTwo}
+SearchRecipes cook with {IngredientOne} {IngredientTwo} {IngredientThree}
+SearchRecipes search for recipes with {IngredientOne}
+SearchRecipes search for recipes with {IngredientOne} {IngredientTwo}
+SearchRecipes search for recipes with {IngredientOne} {IngredientTwo} {IngredientThree}
