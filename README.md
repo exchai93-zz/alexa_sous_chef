@@ -89,14 +89,14 @@ I want to ask Alexa for help.
 
 Configure the Interaction Model:
 + Fill in the Intent Schema
-From the `intents.txt` file in the root folder.
+From the `intents.txt` file in the `set-up` folder.
 
 + Fill in the Custom Slot Type:
 ![Alt text](/images/custom_slots.png?raw=true "Skill slots")
-Add the list ingredients to the INGREDIENT slot type from the `custom_slots.txt` file in the root folder.
+Add the list ingredients to the INGREDIENT slot type from the `custom_slots.txt` file in `lib/ingredients.txt`.
 
 + Fill in the Sample Utterances:
-From the `utterances.txt` file in the root of the folder.
+From the `utterances.txt` file in the `set-up` folder.
 
 #### To set up locally:
 1. Clone this repository: ``git clone https://github.com/exchai93/alexa_sous_chef.git``
