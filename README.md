@@ -20,7 +20,7 @@ A recent report by the Consumer Intelligence Research Partners (CIRP) estimated 
 
 As four Makers who enjoy our fair share of cooking, we agreed that the growing number of online recipes and resultant use of electrical devices in the kitchen disrupted our cooking flow. Going back and forth to check the recipe instructions was disruptive to our overall cooking experience. Additionally, the fact that our recipes were no longer in traditional paperbound cookbooks but on our phones or tablets compounded the probability of accidentally splattering ingredients over our devices.
 
-We decided to create the ultimate virtual cooking assistant using Amazon Echo to address this issue. Sous Chef offers X number of recipes and voice-enabled instructions for a hands-free,  smoother and more enjoyable cooking experience.
+We decided to create the ultimate virtual cooking assistant using Amazon Echo to address this issue. Sous Chef offers over 1,000 recipes with voice-enabled instructions for a hands-free,  smoother and more enjoyable cooking experience.
 
 ### How it works
 #### Structure of the skill
