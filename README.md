@@ -77,7 +77,7 @@ From the `intents.txt` file in the root folder.
 ![Alt text](/images/custom_slots.png?raw=true "Skill slots")
 Add the list ingredients to the INGREDIENT slot type from the `custom_slots.txt` file in the root folder.
 
-+ Fill in the Sample Utterances
++ Fill in the Sample Utterances:
 From the `utterances.txt` file in the root of the folder.
 
 #### To set up locally:
