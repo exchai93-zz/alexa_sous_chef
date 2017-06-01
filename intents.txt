@@ -1,0 +1,60 @@
+{
+  "intents": [
+    {
+      "slots": [
+        {
+          "name": "Choice",
+          "type": "CHOICE"
+        }
+      ],
+      "intent": "FindRecipe"
+    },
+    {
+      "slots": [
+        {
+          "name": "Action",
+          "type": "ACTION"
+        }
+      ],
+      "intent": "PreparationSteps"
+    },
+    {
+      "intent": "AMAZON.RepeatIntent"
+    },
+    {
+      "intent": "ListIngredients"
+    },
+    {
+      "intent": "ListIngredientsTogether"
+    },
+    {
+      "intent": "ListIngredientsSeparately"
+    },
+    {
+      "slots": [
+        {
+          "name": "IngredientOne",
+          "type": "INGREDIENT"
+        },
+        {
+          "name": "IngredientTwo",
+          "type": "INGREDIENT"
+        },
+        {
+          "name": "IngredientThree",
+          "type": "INGREDIENT"
+        }
+      ],
+      "intent": "SearchRecipes"
+    },
+    {
+      "intent": "AMAZON.PauseIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    }
+  ]
+}

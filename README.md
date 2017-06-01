@@ -71,67 +71,14 @@ I want Alexa to have a time function.
 
 Configure the Interaction Model:
 + Fill in the Intent Schema
-```
-{
-  "intents": [
-    {
-      "slots": [
-        {
-          "name": "Choice",
-          "type": "CHOICE"
-        }
-      ],
-      "intent": "FindRecipe"
-    },
-    {
-      "slots": [
-        {
-          "name": "Action",
-          "type": "ACTION"
-        }
-      ],
-      "intent": "PreparationSteps"
-    },
-    {
-      "intent": "AMAZON.RepeatIntent"
-    },
-    {
-      "intent": "ListIngredients"
-    },
-    {
-      "intent": "ListIngredientsTogether"
-    },
-    {
-      "intent": "ListIngredientsSeparately"
-    },
-    {
-      "slots": [
-        {
-          "name": "IngredientOne",
-          "type": "INGREDIENT"
-        },
-        {
-          "name": "IngredientTwo",
-          "type": "INGREDIENT"
-        },
-        {
-          "name": "IngredientThree",
-          "type": "INGREDIENT"
-        }
-      ],
-      "intent": "SearchRecipes"
-    },
-  ]
-}
-```
+From the `intents.txt` file in the root folder.
 
-Fill in the Sample Utterances
-```FindRecipe pick {Recipe}
-Steps {Action} the recipe
-Steps {Action} step
-Ingredients {Read}
-SearchRecipes search {Ingredient}
-```
++ Fill in the Custom Slot Type:
+![Alt text](/images/custom_slots.png?raw=true "Skill slots")
+Add the list ingredients to the INGREDIENT slot type from the `custom_slots.txt` file in the root folder.
+
++ Fill in the Sample Utterances
+From the `utterances.txt` file in the root of the folder.
 
 #### To set up locally:
 1. Clone this repository: ``git clone https://github.com/exchai93/alexa_sous_chef.git``
